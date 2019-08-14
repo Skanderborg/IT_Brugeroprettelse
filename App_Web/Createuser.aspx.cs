@@ -481,6 +481,20 @@ namespace App_Web
                     }
 
                 }
+
+                // er der valgt cura login organisaitoner?
+                if(grid_curaLOrg.Items.Count > 0)
+                {
+                    errCuraLOrg.ForeColor = colNoErrLabel;
+                    ddl_curaLOrg.BorderColor = colNoErr;
+                }
+                else
+                {
+                    errCuraLOrg.ForeColor = colErr;
+                    ddl_curaLOrg.BorderColor = colErr;
+                    ddl_curaLOrg.BorderWidth = 1;
+                    res = false;
+                }
             }
             return res;
         }
@@ -765,13 +779,16 @@ namespace App_Web
         {
             if (ddl_curaLOrg.SelectedIndex != -1 && ddl_curaLOrg.SelectedValue != "X")
             {
-                List<string> curaLOGORGs = new List<string>();
+                List<string> curaLOrgs = new List<string>();
                 foreach (GridDataItem item in grid_curaLOrg.Items)
                 {
-                    curaLOGORGs.Add(item.GetDataKeyValue("curaLOrg").ToString());
+                    curaLOrgs.Add(item.GetDataKeyValue("curaLOrg").ToString());
                 }
-                curaLOGORGs.Add(ddl_curaLOrg.SelectedText);
-                LoadCuraGrid(curaLOGORGs);
+                if (!curaLOrgs.Contains(ddl_curaLOrg.SelectedText))
+                {
+                    curaLOrgs.Add(ddl_curaLOrg.SelectedText);
+                }
+                LoadCuraGrid(curaLOrgs);
             }
         }
 
@@ -790,11 +807,11 @@ namespace App_Web
             }
         }
 
-        private void LoadCuraGrid(List<string> curaLOGORGs)
+        private void LoadCuraGrid(List<string> curaLOrgs)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("curaLOrg", typeof(string));
-            foreach (string logorg in curaLOGORGs)
+            foreach (string logorg in curaLOrgs)
                 dt.Rows.Add(logorg);
             grid_curaLOrg.DataSource = dt;
             grid_curaLOrg.Rebind();

@@ -373,6 +373,15 @@ namespace App_Web {
         protected global::System.Web.UI.WebControls.Panel panelCuraORGLOG;
         
         /// <summary>
+        /// errCuraLOrg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errCuraLOrg;
+        
+        /// <summary>
         /// ddl_curaLOrg control.
         /// </summary>
         /// <remarks>

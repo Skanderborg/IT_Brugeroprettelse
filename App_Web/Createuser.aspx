@@ -181,11 +181,12 @@
          </div>
         <asp:Panel runat="server" ID="panelCuraORGLOG" Visible="false">
           <div class="form-group">
-            <label for="ddl_curaLOrg">Vælg Cura Loginenheder</label><label class="requiredfield">*</label>
+            <asp:label id="errCuraLOrg" runat="server">Vælg Cura Loginenheder</asp:label><label class="requiredfield">*</label>
             <telerik:RadDropDownList runat="server" ID="ddl_curaLOrg" Width="100%" />
             <telerik:RadButton runat="server" ID="btn_add_curaLOrg" Text="Tilføj" OnClick="btn_add_curaLOrg_Click" AutoPostBack="true"/>
           </div>
           <div class="form-group">
+            <label>Dine valgte login enheder:</label>
             <telerik:RadGrid runat="server" ID="grid_curaLOrg" RenderMode="Lightweight" AllowPaging="false" AutoGenerateColumns="false" AllowMultiRowEdit="false"
               OnItemCommand="grid_curaLOrg_ItemCommand">
               <MasterTableView ShowHeader="false" ShowFooter="false" DataKeyNames="curaLOrg">
