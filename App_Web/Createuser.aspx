@@ -176,11 +176,31 @@
       </div>
       <asp:Panel ID="panelCura" runat="server" Visible="false">
         <div class="form-group">
-          <label for="DDLCuraRolle">Vælg CuraBrugerrolle:</label><label class="requiredfield">*</label>
+          <label for="DDLCuraRolle">Vælg Cura Brugerrolle:</label><label class="requiredfield">*</label>
           <telerik:RadDropDownList runat="server" ID="DdlCuraBrugerRolle" Width="100%" />
          </div>
         <asp:Panel runat="server" ID="panelCuraORGLOG" Visible="false">
-
+          <div class="form-group">
+            <label for="ddl_curaLOrg">Vælg Cura Loginenheder</label><label class="requiredfield">*</label>
+            <telerik:RadDropDownList runat="server" ID="ddl_curaLOrg" Width="100%" />
+            <telerik:RadButton runat="server" ID="btn_add_curaLOrg" Text="Tilføj" OnClick="btn_add_curaLOrg_Click" AutoPostBack="true"/>
+          </div>
+          <div class="form-group">
+            <telerik:RadGrid runat="server" ID="grid_curaLOrg" RenderMode="Lightweight" AllowPaging="false" AutoGenerateColumns="false" AllowMultiRowEdit="false"
+              OnItemCommand="grid_curaLOrg_ItemCommand">
+              <MasterTableView ShowHeader="false" ShowFooter="false" DataKeyNames="curaLOrg">
+                <Columns>
+                  <telerik:GridBoundColumn UniqueName="curaLOrg" DataField="curaLOrg" />
+                  <telerik:GridTemplateColumn UniqueName="delete" HeaderStyle-Width="5%">
+                    <ItemTemplate>
+                      <asp:ImageButton ID="ImageButton1" runat="server" AlternateText="Fjern" OnClientClick="javascript:if(!confirm('Vil du fjerne rollen?')){return false};"
+                        ImageUrl="delete.png" CommandName="delete" />
+                    </ItemTemplate>
+                  </telerik:GridTemplateColumn>
+                </Columns>
+              </MasterTableView>
+            </telerik:RadGrid>
+          </div>
         </asp:Panel>
          <asp:Panel ID="panelCuraPlanner" runat="server" Visible="false">
             <div class="form-group">
@@ -343,6 +363,11 @@
         <telerik:AjaxSetting AjaxControlID="RbIsCuraFMK">
           <UpdatedControls>
             <telerik:AjaxUpdatedControl ControlID="panelCuraFMKID" LoadingPanelID="RadAjaxLoadingPanel1" />
+          </UpdatedControls>
+        </telerik:AjaxSetting>
+        <telerik:AjaxSetting AjaxControlID="BtnAddCuraORGLOG">
+          <UpdatedControls>
+            <telerik:AjaxUpdatedControl ControlID="grid_curaLOrg" LoadingPanelID="RadAjaxLoadingPanel1" />
           </UpdatedControls>
         </telerik:AjaxSetting>
 

@@ -57,6 +57,11 @@ namespace App_Web.Services
             return adService.GetCuraRoles(Properties.Settings.Default.ad_curaroles);
         }
 
+        internal List<string> GetCuraLOrg()
+        {
+            return adService.GetCuraLOrg(Properties.Settings.Default.ad_curaorg);
+        }
+
         private bool CreateADUser(Runbook_Operation op, out string errorStr)
         {
 

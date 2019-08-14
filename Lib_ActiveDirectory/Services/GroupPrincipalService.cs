@@ -32,7 +32,7 @@ namespace Lib_ActiveDirectory.Services
             return res.OrderBy(r => r).ToList();
         }
 
-        public List<string> GetCuraOrg(string strContextcontainer)
+        public List<string> GetCuraLOrg(string strContextcontainer)
         {
             List<string> res = new List<string>();
             using(PrincipalContext principalContext = new PrincipalContext(ContextType.Domain, strContextName, strContextcontainer))

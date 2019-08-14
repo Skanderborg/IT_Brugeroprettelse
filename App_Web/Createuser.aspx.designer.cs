@@ -373,6 +373,33 @@ namespace App_Web {
         protected global::System.Web.UI.WebControls.Panel panelCuraORGLOG;
         
         /// <summary>
+        /// ddl_curaLOrg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddl_curaLOrg;
+        
+        /// <summary>
+        /// btn_add_curaLOrg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btn_add_curaLOrg;
+        
+        /// <summary>
+        /// grid_curaLOrg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadGrid grid_curaLOrg;
+        
+        /// <summary>
         /// panelCuraPlanner control.
         /// </summary>
         /// <remarks>

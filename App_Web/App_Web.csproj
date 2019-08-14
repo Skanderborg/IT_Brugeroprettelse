@@ -77,6 +77,9 @@
   <ItemGroup>
     <Content Include="Createuser.aspx" />
     <Content Include="Createuser_test.aspx" />
+    <Content Include="delete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="LoraWebservice.asmx" />
     <Content Include="Scripts\bootstrap4-toggle.js" />

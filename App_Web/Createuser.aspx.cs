@@ -1,7 +1,9 @@
 ﻿using App_Web.Services;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using Telerik.Web.UI;
 
 namespace App_Web
 {
@@ -16,6 +18,7 @@ namespace App_Web
             if (!IsPostBack)
             {
                 LoadCuraRoles();
+                LoadCuraLOrg();
             }
         }
 
@@ -27,6 +30,18 @@ namespace App_Web
             foreach (string role in service.GetCuraRoles())
             {
                 DdlCuraBrugerRolle.Items.Add(new Telerik.Web.UI.DropDownListItem() { Value = count.ToString(), Text = role });
+                count++;
+            }
+        }
+
+        protected void LoadCuraLOrg()
+        {
+            ddl_curaLOrg.Items.Clear();
+            ddl_curaLOrg.Items.Add(new Telerik.Web.UI.DropDownListItem() { Value = "X", Text = "Vælg Login Organisation" });
+            int count = 1;
+            foreach (string lorg in service.GetCuraLOrg())
+            {
+                ddl_curaLOrg.Items.Add(new Telerik.Web.UI.DropDownListItem() { Value = count.ToString(), Text = lorg });
                 count++;
             }
         }
@@ -744,6 +759,45 @@ namespace App_Web
                 TxbKMDOrgUnit.Text = "";
                 panelOpusLonPersonale.Visible = false;
             }
+        }
+
+        protected void btn_add_curaLOrg_Click(object sender, EventArgs e)
+        {
+            if (ddl_curaLOrg.SelectedIndex != -1 && ddl_curaLOrg.SelectedValue != "X")
+            {
+                List<string> curaLOGORGs = new List<string>();
+                foreach (GridDataItem item in grid_curaLOrg.Items)
+                {
+                    curaLOGORGs.Add(item.GetDataKeyValue("curaLOrg").ToString());
+                }
+                curaLOGORGs.Add(ddl_curaLOrg.SelectedText);
+                LoadCuraGrid(curaLOGORGs);
+            }
+        }
+
+        protected void grid_curaLOrg_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
+        {
+            if (e.CommandName == "delete")
+            {
+                List<string> curaLOGORGs = new List<string>();
+                foreach (GridDataItem item in grid_curaLOrg.Items)
+                {
+                    curaLOGORGs.Add(item.GetDataKeyValue("curaLOrg").ToString());
+                }
+                GridDataItem currentItem = (GridDataItem)e.Item;
+                curaLOGORGs.Remove(currentItem.GetDataKeyValue("curaLOrg").ToString());
+                LoadCuraGrid(curaLOGORGs);
+            }
+        }
+
+        private void LoadCuraGrid(List<string> curaLOGORGs)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("curaLOrg", typeof(string));
+            foreach (string logorg in curaLOGORGs)
+                dt.Rows.Add(logorg);
+            grid_curaLOrg.DataSource = dt;
+            grid_curaLOrg.Rebind();
         }
     }
 }
