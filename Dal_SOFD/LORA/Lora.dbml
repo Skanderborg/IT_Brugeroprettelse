@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LORA_SOFD" Class="LoraDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=dbsrv_lora_sofd;Initial Catalog=LORA_SOFD;Persist Security Info=True;User ID=lora_sofd_rw" SettingsObjectName="Dal_SOFD.Properties.Settings" SettingsPropertyName="LORA_SOFDConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.v_ad_user_creation" Member="v_ad_user_creations">
+    <Type Name="v_ad_user_creation">
+      <Column Name="Opus_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Fullname" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Firstname" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Lastname" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Cpr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Orgunit" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Orgunit_losid_fk" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ans_dato" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Fra_dato" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Is_Manager" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="User_fk" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="samaccount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
