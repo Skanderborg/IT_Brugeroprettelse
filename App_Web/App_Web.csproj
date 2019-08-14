@@ -155,6 +155,10 @@
       <Project>{b2141fc3-5cf4-4f0b-b1e2-90829e8e2f62}</Project>
       <Name>Dal_SOFD</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Lib_ActiveDirectory\Lib_ActiveDirectory.csproj">
+      <Project>{4094640f-d5eb-4449-a50f-72bbb7afe162}</Project>
+      <Name>Lib_ActiveDirectory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lib_runbook\Lib_runbook.csproj">
       <Project>{b8381b84-4b07-41fe-873f-3052afc0f0d1}</Project>
       <Name>Lib_runbook</Name>
@@ -186,7 +190,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
