@@ -27,7 +27,7 @@ namespace App_Web
             {
                 RadComboBoxData comboData = new RadComboBoxData();
                 List<RadComboBoxItemData> result = new List<RadComboBoxItemData>();
-                string searchterm = context.Text.ToLower();
+                string searchterm = context.Text.ToLower(); //p.User_fk == null &&
                 foreach (v_ad_user_creation pos in repo.Query.Where(p => p.User_fk == null && p.Fullname.ToLower().Substring(0, searchterm.Length).Equals(searchterm)))
                 {
                     RadComboBoxItemData item = new RadComboBoxItemData();

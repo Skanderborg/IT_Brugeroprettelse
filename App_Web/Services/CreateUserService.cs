@@ -66,7 +66,7 @@ namespace App_Web.Services
         {
 
             //set test eller actual runbook id
-            RunbookService runbook = new RunbookService(Properties.Settings.Default.RunbookUsername, Properties.Settings.Default.RunbookPassword, Properties.Settings.Default.orchestratorApiAddress, Properties.Settings.Default.runbookId);
+            RunbookService runbook = new RunbookService(Properties.Settings.Default.RunbookUsername, Properties.Settings.Default.RunbookPassword, Properties.Settings.Default.orchestratorApiAddress, Properties.Settings.Default.TestRunbookId);
             return runbook.CreateAndStartRunbookJob(op, out errorStr);
         }
 
@@ -112,7 +112,10 @@ namespace App_Web.Services
                 bool isKMDLoenOgPersonale,
                 string kMDOrgUnit,
 
-                string bemaerkninger, out string errorStr)
+                string bemaerkninger,
+                
+                string curaLoginORGs,
+                out string errorStr)
         {
             string bestillerSamaccount = GetCurrentUserADUsername();
             string cpr = GetCpr(int.Parse(opus_medarbejdernr));
@@ -162,7 +165,9 @@ namespace App_Web.Services
                 IsKMDLoenOgPersonale = isKMDLoenOgPersonale,
                 KMDOrgUnit = kMDOrgUnit,
 
-                Bemaerkninger = bemaerkninger
+                Bemaerkninger = bemaerkninger,
+
+                CuraLoginORGs = curaLoginORGs
             };
             return CreateADUser(ro, out errorStr);
         }

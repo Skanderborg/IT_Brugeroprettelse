@@ -219,5 +219,11 @@ namespace Lib_runbook.Model
         //[String]$Bemaerkninger
         //Skriv evt. dine bemærkninger her:
         public string Bemaerkninger { get; set; }
+
+
+        // cura login org
+        // semikolon spereret array, fordi der ikke kan sendes arrays heh
+        // mandatory ved cura, men ellers ikke
+        public string CuraLoginORGs { get; set; }
     }
 }

@@ -104,6 +104,7 @@ namespace Lib_runbook
             runbookParams.Add(new NameValuePair() { Name = "IsKMDLoenOgPersonale", Value = strHack + op.IsKMDLoenOgPersonale });
             runbookParams.Add(new NameValuePair() { Name = "KMDOrgUnit", Value = strHack + op.KMDOrgUnit });
             runbookParams.Add(new NameValuePair() { Name = "Bemaerkninger", Value = strHack + op.Bemaerkninger });
+                runbookParams.Add(new NameValuePair() { Name = "CuraLoginORGs", Value = strHack + op.CuraLoginORGs });
             return new BodyOperationParameter("parameters", runbookParams);
         }
 

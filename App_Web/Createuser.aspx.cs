@@ -63,6 +63,7 @@ namespace App_Web
             if (IsPageValid())
             {
                 string errMessage;
+                string curaLoginORGs = GetCuraLoginORGs();
                 bool result = service.CreateUser(CBOpus_medarbejdernr.SelectedValue,
                                                 TxbFornavn.Text,
                                                 TxbEfternavn.Text,
@@ -96,7 +97,9 @@ namespace App_Web
                                                 RbIsKMDMitForventedeRegnskab.SelectedIndex == 0,
                                                 RbIsKMDLoenOgPersonale.SelectedIndex == 0,
                                                 TxbKMDOrgUnit.Text,
-                                                TxbBemaerkninger.Text, out errMessage);
+                                                TxbBemaerkninger.Text,
+                                                curaLoginORGs,
+                                                out errMessage);
                 if (result)
                 {
                     Response.Redirect("Success.aspx");
@@ -108,6 +111,17 @@ namespace App_Web
                     lblTotaleFatale.Visible = true;
                 }
             }
+        }
+
+        private string GetCuraLoginORGs()
+        {
+            string fakeArr = "";
+            foreach(GridDataItem item in grid_curaLOrg.Items)
+            {
+                fakeArr += item.GetDataKeyValue("curaLOrg").ToString() + ";";
+            }
+
+            return fakeArr;
         }
 
         protected bool IsPageValid()
