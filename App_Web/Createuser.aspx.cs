@@ -158,16 +158,6 @@ namespace App_Web
             if (CbManagerSamaccount.SelectedValue.Length == 6)
             {
                 CbManagerSamaccount.BorderColor = colNoErr;
-                //if (service.IsEmployee(opus_id_manager))
-                //{
-                //    CbManagerSamaccount.BorderColor = colNoErr;
-                //}
-                //else
-                //{
-                //    CbManagerSamaccount.BorderWidth = 1;
-                //    CbManagerSamaccount.BorderColor = colErr;
-                //    res = false;
-                //}
             }
             else
             {
@@ -180,16 +170,6 @@ namespace App_Web
             if (CbCoworkerSamaccount.SelectedValue.Length == 6)
             {
                 CbCoworkerSamaccount.BorderColor = colNoErr;
-                //if (service.IsEmployee(opus_id_coworker))
-                //{
-                //    CbCoworkerSamaccount.BorderColor = colNoErr;
-                //}
-                //else
-                //{
-                //    CbCoworkerSamaccount.BorderWidth = 1;
-                //    CbCoworkerSamaccount.BorderColor = colErr;
-                //    res = false;
-                //}
             }
             else
             {
@@ -428,62 +408,6 @@ namespace App_Web
                     else
                     {
                         DdlCuraBrugerRolle.BorderColor = colNoErr;
-                        //int roleid = int.parse(ddlcurabrugerrolle.selectedvalue);
-                        //// hvis der er valgt en rolle, som kan planlægge, skal der tages stilling til dette
-                        //if (service.iscurarolleplanner(roleid))
-                        //{
-                        //    if (rbiscuraplanner.selectedindex == -1)
-                        //    {
-                        //        errcuraplaner.forecolor = colerr;
-                        //        res = false;
-                        //    }
-                        //    else
-                        //    {
-                        //        errcuraplaner.forecolor = colnoerrlabel;
-                        //    }
-                        //}
-
-                        //// hvis der er valgt en rolle, som har adgang til fmk, skal der tages stilling til dette
-                        //if (service.iscurafmk(roleid))
-                        //{
-                        //    if (rbiscurafmk.selectedindex == -1)
-                        //    {
-                        //        rbiscurafmk.forecolor = colerr;
-                        //        res = false;
-                        //    }
-                        //    else
-                        //    {
-                        //        rbiscurafmk.forecolor = colnoerrlabel;
-                        //        // hvis brugeren skal have fmk, skal fmk authentication indtastes
-                        //        // der skal også bestilles nemid
-                        //        if (rbiscurafmk.selectedindex == 0)
-                        //        {
-                        //            // authentication er indtastet
-                        //            if (txbcurafmkid.text.length > 0)
-                        //            {
-                        //                txbcurafmkid.bordercolor = colnoerr;
-                        //            }
-                        //            else
-                        //            {
-                        //                txbcurafmkid.bordercolor = colerr;
-                        //                res = false;
-                        //            }
-
-                        //            //nemid er valgt
-                        //            if (rbisnemid.selectedindex == 0)
-                        //            {
-                        //                errnemid.text = "nemid";
-                        //                errnemid.forecolor = colnoerrlabel;
-                        //            }
-                        //            else
-                        //            {
-                        //                errnemid.text = "nemid - krævet når der bestilles fmk";
-                        //                errnemid.forecolor = colerr;
-                        //                res = false;
-                        //            }
-                        //        }
-                        //    }
-                        //}
                     }
 
                     // er der taget stilling til cura planlægger?
@@ -745,12 +669,14 @@ namespace App_Web
             if (RbIsCura.SelectedIndex == 0)
             {
                 panelCura.Visible = true;
+                panelCuraORGLOG.Visible = true;
                 panelCuraPlanner.Visible = true;
                 panelCuraFMK.Visible = true;
             }
             else
             {
                 panelCura.Visible = false;
+                panelCuraORGLOG.Visible = false;
                 DdlCuraBrugerRolle.SelectedIndex = -1;
                 RbIsCuraPlanner.SelectedIndex = -1;
                 RbIsCuraFMK.SelectedIndex = -1;

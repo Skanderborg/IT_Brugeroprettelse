@@ -179,6 +179,9 @@
           <label for="DDLCuraRolle">Vælg CuraBrugerrolle:</label><label class="requiredfield">*</label>
           <telerik:RadDropDownList runat="server" ID="DdlCuraBrugerRolle" Width="100%" />
          </div>
+        <asp:Panel runat="server" ID="panelCuraORGLOG" Visible="false">
+
+        </asp:Panel>
          <asp:Panel ID="panelCuraPlanner" runat="server" Visible="false">
             <div class="form-group">
               <asp:label runat="server" ID="errCuraPlaner">Er personen ressourceplanlægger?</asp:label><label class="requiredfield">*</label>
@@ -331,6 +334,7 @@
         <telerik:AjaxSetting AjaxControlID="RbIsCura">
           <UpdatedControls>
             <telerik:AjaxUpdatedControl ControlID="panelCura" LoadingPanelID="RadAjaxLoadingPanel1" />
+            <telerik:AjaxUpdatedControl ControlID="panelCuraORGLOG" LoadingPanelID="RadAjaxLoadingPanel1" />
             <telerik:AjaxUpdatedControl ControlID="panelCuraPlanner" LoadingPanelID="RadAjaxLoadingPanel1" />
             <telerik:AjaxUpdatedControl ControlID="panelCuraFMK" LoadingPanelID="RadAjaxLoadingPanel1" />
             <telerik:AjaxUpdatedControl ControlID="panelCuraFMKID" LoadingPanelID="RadAjaxLoadingPanel1" />
