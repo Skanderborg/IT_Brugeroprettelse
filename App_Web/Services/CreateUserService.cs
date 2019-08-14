@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using App_Web.Models;
 using Dal_SOFD.LORA;
 using Lib_runbook.Model;
 using Lib_runbook;
+using Lib_ActiveDirectory.Services;
 
 namespace App_Web.Services
 {
     internal class CreateUserService
     {
-        private CuraRoleRepo rolleRepo = new CuraRoleRepo();
+        //private CuraRoleRepo rolleRepo = new CuraRoleRepo();
+        private GroupPrincipalService adService = new GroupPrincipalService();
         private PositionRepo posRepo = new PositionRepo(Properties.Settings.Default.LORA_Constr);
 
         /// <summary>
@@ -51,24 +52,9 @@ namespace App_Web.Services
             return username;
         }
 
-        internal bool IsCuraRollePlanner(int roleId)
+        internal List<string> GetCuraRoles()
         {
-            return rolleRepo.Query.Where(r => r.System_id == roleId).First().IsPlanner;
-        }
-
-        internal bool IsCuraFMK(int roleId)
-        {
-            return rolleRepo.Query.Where(r => r.System_id == roleId).First().IsFMKuser;
-        }
-
-        internal Dictionary<int, string> GetCuraRoles()
-        {
-            Dictionary<int, string> res = new Dictionary<int, string>();
-            foreach (CuraRole r in rolleRepo.Query)
-            {
-                res.Add(r.System_id, r.Name);
-            }
-            return res;
+            return adService.GetCuraRoles(Properties.Settings.Default.ad_curaroles);
         }
 
         private bool CreateADUser(Runbook_Operation op, out string errorStr)

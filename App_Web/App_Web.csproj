@@ -109,8 +109,6 @@
       <DependentUpon>LoraWebservice.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Models\CuraRole.cs" />
-    <Compile Include="Models\CuraRoleRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -149,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dal_SOFD\Dal_SOFD.csproj">

@@ -177,7 +177,7 @@
       <asp:Panel ID="panelCura" runat="server" Visible="false">
         <div class="form-group">
           <label for="DDLCuraRolle">Vælg CuraBrugerrolle:</label><label class="requiredfield">*</label>
-          <telerik:RadDropDownList runat="server" ID="DdlCuraBrugerRolle" AutoPostBack="true" OnSelectedIndexChanged="DdlCuraBrugerRolle_SelectedIndexChanged" Width="100%" />
+          <telerik:RadDropDownList runat="server" ID="DdlCuraBrugerRolle" Width="100%" />
          </div>
          <asp:Panel ID="panelCuraPlanner" runat="server" Visible="false">
             <div class="form-group">
@@ -331,13 +331,6 @@
         <telerik:AjaxSetting AjaxControlID="RbIsCura">
           <UpdatedControls>
             <telerik:AjaxUpdatedControl ControlID="panelCura" LoadingPanelID="RadAjaxLoadingPanel1" />
-            <telerik:AjaxUpdatedControl ControlID="panelCuraPlanner" LoadingPanelID="RadAjaxLoadingPanel1" />
-            <telerik:AjaxUpdatedControl ControlID="panelCuraFMK" LoadingPanelID="RadAjaxLoadingPanel1" />
-            <telerik:AjaxUpdatedControl ControlID="panelCuraFMKID" LoadingPanelID="RadAjaxLoadingPanel1" />
-          </UpdatedControls>
-        </telerik:AjaxSetting>
-        <telerik:AjaxSetting AjaxControlID="DdlCuraBrugerRolle">
-          <UpdatedControls>
             <telerik:AjaxUpdatedControl ControlID="panelCuraPlanner" LoadingPanelID="RadAjaxLoadingPanel1" />
             <telerik:AjaxUpdatedControl ControlID="panelCuraFMK" LoadingPanelID="RadAjaxLoadingPanel1" />
             <telerik:AjaxUpdatedControl ControlID="panelCuraFMKID" LoadingPanelID="RadAjaxLoadingPanel1" />

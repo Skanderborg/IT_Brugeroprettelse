@@ -23,9 +23,11 @@ namespace App_Web
         {
             DdlCuraBrugerRolle.Items.Clear();
             DdlCuraBrugerRolle.Items.Add(new Telerik.Web.UI.DropDownListItem() { Value = "X", Text = "Vælg rolle" });
-            foreach (KeyValuePair<int, string> vp in service.GetCuraRoles())
+            int count = 1;
+            foreach (string role in service.GetCuraRoles())
             {
-                DdlCuraBrugerRolle.Items.Add(new Telerik.Web.UI.DropDownListItem() { Value = vp.Key.ToString(), Text = vp.Value });
+                DdlCuraBrugerRolle.Items.Add(new Telerik.Web.UI.DropDownListItem() { Value = count.ToString(), Text = role });
+                count++;
             }
         }
 
@@ -426,63 +428,119 @@ namespace App_Web
                     else
                     {
                         DdlCuraBrugerRolle.BorderColor = colNoErr;
-                        int roleId = int.Parse(DdlCuraBrugerRolle.SelectedValue);
-                        // hvis der er valgt en rolle, som kan planlægge, skal der tages stilling til dette
-                        if (service.IsCuraRollePlanner(roleId))
+                        //int roleid = int.parse(ddlcurabrugerrolle.selectedvalue);
+                        //// hvis der er valgt en rolle, som kan planlægge, skal der tages stilling til dette
+                        //if (service.iscurarolleplanner(roleid))
+                        //{
+                        //    if (rbiscuraplanner.selectedindex == -1)
+                        //    {
+                        //        errcuraplaner.forecolor = colerr;
+                        //        res = false;
+                        //    }
+                        //    else
+                        //    {
+                        //        errcuraplaner.forecolor = colnoerrlabel;
+                        //    }
+                        //}
+
+                        //// hvis der er valgt en rolle, som har adgang til fmk, skal der tages stilling til dette
+                        //if (service.iscurafmk(roleid))
+                        //{
+                        //    if (rbiscurafmk.selectedindex == -1)
+                        //    {
+                        //        rbiscurafmk.forecolor = colerr;
+                        //        res = false;
+                        //    }
+                        //    else
+                        //    {
+                        //        rbiscurafmk.forecolor = colnoerrlabel;
+                        //        // hvis brugeren skal have fmk, skal fmk authentication indtastes
+                        //        // der skal også bestilles nemid
+                        //        if (rbiscurafmk.selectedindex == 0)
+                        //        {
+                        //            // authentication er indtastet
+                        //            if (txbcurafmkid.text.length > 0)
+                        //            {
+                        //                txbcurafmkid.bordercolor = colnoerr;
+                        //            }
+                        //            else
+                        //            {
+                        //                txbcurafmkid.bordercolor = colerr;
+                        //                res = false;
+                        //            }
+
+                        //            //nemid er valgt
+                        //            if (rbisnemid.selectedindex == 0)
+                        //            {
+                        //                errnemid.text = "nemid";
+                        //                errnemid.forecolor = colnoerrlabel;
+                        //            }
+                        //            else
+                        //            {
+                        //                errnemid.text = "nemid - krævet når der bestilles fmk";
+                        //                errnemid.forecolor = colerr;
+                        //                res = false;
+                        //            }
+                        //        }
+                        //    }
+                        //}
+                    }
+
+                    // er der taget stilling til cura planlægger?
+                    if (RbIsCuraPlanner.SelectedIndex == -1)
+                    {
+                        errCuraPlaner.ForeColor = colErr;
+                        RbIsCuraPlanner.ForeColor = colErr;
+                        res = false;
+                    }
+                    else
+                    {
+                        errCuraPlaner.ForeColor = colNoErrLabel;
+                        RbIsCuraPlanner.ForeColor = colNoErr;
+                    }
+
+
+                    // er der taget stilling til FMK?
+                    if (RbIsCuraFMK.SelectedIndex == -1)
+                    {
+                        errRbIsCuraFMK.ForeColor = colErr;
+                        RbIsCuraFMK.ForeColor = colErr;
+                        res = false;
+                    }
+                    else
+                    {
+                        errRbIsCuraFMK.ForeColor = colNoErr;
+                        RbIsCuraFMK.ForeColor = colNoErrLabel;
+                        // hvis brugeren skal have FMK, skal FMK authentication indtastes
+                        // der skal også bestilles nemid
+                        if (RbIsCuraFMK.SelectedIndex == 0)
                         {
-                            if (RbIsCuraPlanner.SelectedIndex == -1)
+                            // authentication er indtastet
+                            if (TxbCuraFMKID.Text.Length > 0)
                             {
-                                errCuraPlaner.ForeColor = colErr;
-                                res = false;
+                                TxbCuraFMKID.BorderColor = colNoErr;
                             }
                             else
                             {
-                                errCuraPlaner.ForeColor = colNoErrLabel;
-                            }
-                        }
-
-                        // hvis der er valgt en rolle, som har adgang til FMK, skal der tages stilling til dette
-                        if (service.IsCuraFMK(roleId))
-                        {
-                            if (RbIsCuraFMK.SelectedIndex == -1)
-                            {
-                                RbIsCuraFMK.ForeColor = colErr;
+                                TxbCuraFMKID.BorderColor = colErr;
                                 res = false;
+                            }
+
+                            //nemid er valgt
+                            if (RbIsNemID.SelectedIndex == 0)
+                            {
+                                errNemId.Text = "NemID";
+                                errNemId.ForeColor = colNoErrLabel;
                             }
                             else
                             {
-                                RbIsCuraFMK.ForeColor = colNoErrLabel;
-                                // hvis brugeren skal have FMK, skal FMK authentication indtastes
-                                // der skal også bestilles nemid
-                                if (RbIsCuraFMK.SelectedIndex == 0)
-                                {
-                                    // authentication er indtastet
-                                    if (TxbCuraFMKID.Text.Length > 0)
-                                    {
-                                        TxbCuraFMKID.BorderColor = colNoErr;
-                                    }
-                                    else
-                                    {
-                                        TxbCuraFMKID.BorderColor = colErr;
-                                        res = false;
-                                    }
-
-                                    //nemid er valgt
-                                    if (RbIsNemID.SelectedIndex == 0)
-                                    {
-                                        errNemId.Text = "NemID";
-                                        errNemId.ForeColor = colNoErrLabel;
-                                    }
-                                    else
-                                    {
-                                        errNemId.Text = "NemID - krævet når der bestilles FMK";
-                                        errNemId.ForeColor = colErr;
-                                        res = false;
-                                    }
-                                }
+                                errNemId.Text = "NemID - krævet når der bestilles FMK";
+                                errNemId.ForeColor = colErr;
+                                res = false;
                             }
                         }
                     }
+
                 }
             }
             return res;
@@ -685,7 +743,11 @@ namespace App_Web
         protected void RbIsCura_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (RbIsCura.SelectedIndex == 0)
+            {
                 panelCura.Visible = true;
+                panelCuraPlanner.Visible = true;
+                panelCuraFMK.Visible = true;
+            }
             else
             {
                 panelCura.Visible = false;
@@ -696,37 +758,6 @@ namespace App_Web
                 panelCuraPlanner.Visible = false;
                 panelCuraFMK.Visible = false;
             }
-        }
-
-        protected void DdlCuraBrugerRolle_SelectedIndexChanged(object sender, Telerik.Web.UI.DropDownListEventArgs e)
-        {
-            if (e.Value != "X")
-            {
-                int roleId;
-                bool isIdvalid = int.TryParse(e.Value, out roleId);
-
-                if (isIdvalid)
-                {
-                    if (service.IsCuraRollePlanner(roleId))
-                        panelCuraPlanner.Visible = true;
-                    else
-                    {
-                        RbIsCuraPlanner.SelectedIndex = -1;
-                        panelCuraPlanner.Visible = false;
-                    }
-
-                    if (service.IsCuraFMK(roleId))
-                        panelCuraFMK.Visible = true;
-                    else
-                    {
-                        RbIsCuraFMK.SelectedIndex = -1;
-                        TxbCuraFMKID.Text = "";
-                        panelCuraFMK.Visible = false;
-                    }
-                }
-            }
-
-            DdlCuraBrugerRolle.SelectedValue = e.Value;
         }
 
         protected void RbIsCuraFMK_SelectedIndexChanged(object sender, EventArgs e)

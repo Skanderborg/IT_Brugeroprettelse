@@ -29,7 +29,7 @@ namespace Lib_ActiveDirectory.Services
                     }
                 }
             }
-            return res;
+            return res.OrderBy(r => r).ToList();
         }
 
         public List<string> GetCuraOrg(string strContextcontainer)
@@ -50,7 +50,7 @@ namespace Lib_ActiveDirectory.Services
                     }
                 }
             }
-            return res;
+            return res.OrderBy(r => r).ToList();
         }
     }
 }
