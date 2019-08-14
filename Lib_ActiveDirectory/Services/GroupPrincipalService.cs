@@ -21,7 +21,11 @@ namespace Lib_ActiveDirectory.Services
                     PrincipalSearcher searcher = new PrincipalSearcher(groupPrincipal);
                     foreach(Principal found in searcher.FindAll())
                     {
-                        res.Add(found.Name);
+                        if (found != null)
+                        {
+                            string role = found.Name.Replace("CuraRoller ", "");
+                            res.Add(role);
+                        }
                     }
                 }
             }
@@ -38,7 +42,11 @@ namespace Lib_ActiveDirectory.Services
                     PrincipalSearcher searcher = new PrincipalSearcher(groupPrincipal);
                     foreach(Principal found in searcher.FindAll())
                     {
-                        res.Add(found.Name);
+                        if (found != null)
+                        {
+                            string lorg = found.Name.Replace("CURALOG ", "");
+                            res.Add(lorg);
+                        }
                     }
                 }
             }
