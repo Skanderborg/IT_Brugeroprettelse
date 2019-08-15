@@ -179,30 +179,6 @@
           <label for="DDLCuraRolle">Vælg Cura Brugerrolle:</label><label class="requiredfield">*</label>
           <telerik:RadDropDownList runat="server" ID="DdlCuraBrugerRolle" Width="100%" />
          </div>
-        <asp:Panel runat="server" ID="panelCuraORGLOG" Visible="false">
-          <div class="form-group">
-            <asp:label id="errCuraLOrg" runat="server">Vælg Cura Loginenheder</asp:label><label class="requiredfield">*</label>
-            <telerik:RadDropDownList runat="server" ID="ddl_curaLOrg" Width="100%" />
-            <telerik:RadButton runat="server" ID="btn_add_curaLOrg" Text="Tilføj" OnClick="btn_add_curaLOrg_Click" AutoPostBack="true"/>
-          </div>
-          <div class="form-group">
-            <label>Dine valgte login enheder:</label>
-            <telerik:RadGrid runat="server" ID="grid_curaLOrg" RenderMode="Lightweight" AllowPaging="false" AutoGenerateColumns="false" AllowMultiRowEdit="false"
-              OnItemCommand="grid_curaLOrg_ItemCommand">
-              <MasterTableView ShowHeader="false" ShowFooter="false" DataKeyNames="curaLOrg">
-                <Columns>
-                  <telerik:GridBoundColumn UniqueName="curaLOrg" DataField="curaLOrg" />
-                  <telerik:GridTemplateColumn UniqueName="delete" HeaderStyle-Width="5%">
-                    <ItemTemplate>
-                      <asp:ImageButton ID="ImageButton1" runat="server" AlternateText="Fjern" OnClientClick="javascript:if(!confirm('Vil du fjerne rollen?')){return false};"
-                        ImageUrl="delete.png" CommandName="delete" />
-                    </ItemTemplate>
-                  </telerik:GridTemplateColumn>
-                </Columns>
-              </MasterTableView>
-            </telerik:RadGrid>
-          </div>
-        </asp:Panel>
          <asp:Panel ID="panelCuraPlanner" runat="server" Visible="false">
             <div class="form-group">
               <asp:label runat="server" ID="errCuraPlaner">Er personen ressourceplanlægger?</asp:label><label class="requiredfield">*</label>
@@ -228,6 +204,37 @@
             </div>
           </asp:Panel>
         </asp:Panel> 
+        <asp:Panel runat="server" ID="panelCuraORGLOG" Visible="false">
+          <div class="form-group">
+            <asp:label id="errCuraLOrg" runat="server">Vælg Cura login organisationer</asp:label><label class="requiredfield">*</label>
+            <div class="row">
+              <div class="col-11">
+              <telerik:RadDropDownList runat="server" ID="ddl_curaLOrg" Width="100%" />
+              </div>
+              <div class="col-1">
+              <telerik:RadButton runat="server" ID="btn_add_curaLOrg" Text="Tilføj" OnClick="btn_add_curaLOrg_Click" AutoPostBack="true"/>
+                </div>
+            </div>
+            <small id="curalorghelp" class="form-text text-muted">OBS: der skal vælges minimum én login organisation.</small>
+          </div>
+          <div class="form-group">
+            <label>Valgte login organisationer:</label>
+            <telerik:RadGrid runat="server" ID="grid_curaLOrg" RenderMode="Lightweight" AllowPaging="false" AutoGenerateColumns="false" AllowMultiRowEdit="false"
+              OnItemCommand="grid_curaLOrg_ItemCommand">
+              <MasterTableView ShowHeader="false" ShowFooter="false" DataKeyNames="curaLOrg">
+                <Columns>
+                  <telerik:GridBoundColumn UniqueName="curaLOrg" DataField="curaLOrg" />
+                  <telerik:GridTemplateColumn UniqueName="delete" HeaderStyle-Width="5%">
+                    <ItemTemplate>
+                      <asp:ImageButton ID="ImageButton1" runat="server" AlternateText="Fjern" OnClientClick="javascript:if(!confirm('Vil du fjerne login organisationen?')){return false};"
+                        ImageUrl="delete.png" CommandName="delete" />
+                    </ItemTemplate>
+                  </telerik:GridTemplateColumn>
+                </Columns>
+              </MasterTableView>
+            </telerik:RadGrid>
+          </div>
+        </asp:Panel>
       </asp:Panel>
 
       <div class="form-group">

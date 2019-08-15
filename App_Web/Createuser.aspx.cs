@@ -29,8 +29,11 @@ namespace App_Web
             int count = 1;
             foreach (string role in service.GetCuraRoles())
             {
-                DdlCuraBrugerRolle.Items.Add(new Telerik.Web.UI.DropDownListItem() { Value = count.ToString(), Text = role });
-                count++;
+                if (!role.Equals("Ressourceplanlægger"))
+                {
+                    DdlCuraBrugerRolle.Items.Add(new Telerik.Web.UI.DropDownListItem() { Value = count.ToString(), Text = role });
+                    count++;
+                }
             }
         }
 

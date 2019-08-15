@@ -364,51 +364,6 @@ namespace App_Web {
         protected global::Telerik.Web.UI.RadDropDownList DdlCuraBrugerRolle;
         
         /// <summary>
-        /// panelCuraORGLOG control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelCuraORGLOG;
-        
-        /// <summary>
-        /// errCuraLOrg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errCuraLOrg;
-        
-        /// <summary>
-        /// ddl_curaLOrg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddl_curaLOrg;
-        
-        /// <summary>
-        /// btn_add_curaLOrg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btn_add_curaLOrg;
-        
-        /// <summary>
-        /// grid_curaLOrg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid grid_curaLOrg;
-        
-        /// <summary>
         /// panelCuraPlanner control.
         /// </summary>
         /// <remarks>
@@ -479,6 +434,51 @@ namespace App_Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadTextBox TxbCuraFMKID;
+        
+        /// <summary>
+        /// panelCuraORGLOG control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelCuraORGLOG;
+        
+        /// <summary>
+        /// errCuraLOrg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errCuraLOrg;
+        
+        /// <summary>
+        /// ddl_curaLOrg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddl_curaLOrg;
+        
+        /// <summary>
+        /// btn_add_curaLOrg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btn_add_curaLOrg;
+        
+        /// <summary>
+        /// grid_curaLOrg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadGrid grid_curaLOrg;
         
         /// <summary>
         /// errKMDBruger control.
