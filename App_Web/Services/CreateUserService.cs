@@ -66,7 +66,7 @@ namespace App_Web.Services
         {
 
             //set test eller actual runbook id
-            RunbookService runbook = new RunbookService(Properties.Settings.Default.RunbookUsername, Properties.Settings.Default.RunbookPassword, Properties.Settings.Default.orchestratorApiAddress, Properties.Settings.Default.TestRunbookId);
+            RunbookService runbook = new RunbookService(Properties.Settings.Default.RunbookUsername, Properties.Settings.Default.RunbookPassword, Properties.Settings.Default.orchestratorApiAddress, Properties.Settings.Default.runbookId);
             return runbook.CreateAndStartRunbookJob(op, out errorStr);
         }
 

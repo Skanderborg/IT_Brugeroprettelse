@@ -496,21 +496,19 @@ namespace App_Web
                             }
                         }
                     }
-
-                }
-
-                // er der valgt cura login organisaitoner?
-                if(grid_curaLOrg.Items.Count > 0)
-                {
-                    errCuraLOrg.ForeColor = colNoErrLabel;
-                    ddl_curaLOrg.BorderColor = colNoErr;
-                }
-                else
-                {
-                    errCuraLOrg.ForeColor = colErr;
-                    ddl_curaLOrg.BorderColor = colErr;
-                    ddl_curaLOrg.BorderWidth = 1;
-                    res = false;
+                    // er der valgt cura login organisaitoner?
+                    if (grid_curaLOrg.Items.Count > 0)
+                    {
+                        errCuraLOrg.ForeColor = colNoErrLabel;
+                        ddl_curaLOrg.BorderColor = colNoErr;
+                    }
+                    else
+                    {
+                        errCuraLOrg.ForeColor = colErr;
+                        ddl_curaLOrg.BorderColor = colErr;
+                        ddl_curaLOrg.BorderWidth = 1;
+                        res = false;
+                    }
                 }
             }
             return res;
