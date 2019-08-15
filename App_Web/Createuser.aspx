@@ -199,7 +199,7 @@
           </div>
           <asp:Panel ID="panelCuraFMKID" runat="server" Visible="false">
             <div class="form-group">
-              <label for="TxbCuraFMKID">Indtast FMK ID:</label><label class="requiredfield">*</label>
+              <label for="TxbCuraFMKID">Indtast FMK autorisationsnummer:</label><label class="requiredfield">*</label>
               <telerik:RadTextBox runat="server" ID="TxbCuraFMKID" Width="100%" />
             </div>
           </asp:Panel>
