@@ -33,7 +33,7 @@ namespace Dal_SOFD.LORA
     #endregion
 		
 		public LoraDataContext() : 
-				base(global::Dal_SOFD.Properties.Settings.Default.LORA_SOFDConnectionString, mappingSource)
+				base(global::Dal_SOFD.Properties.Settings.Default.LORA_SOFDConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -91,7 +91,7 @@ namespace Dal_SOFD.LORA
 		
 		private int _Orgunit_losid_fk;
 		
-		private System.DateTime _Ans_dato;
+		private System.Nullable<System.DateTime> _Ans_dato;
 		
 		private System.Nullable<System.DateTime> _Fra_dato;
 		
@@ -169,7 +169,7 @@ namespace Dal_SOFD.LORA
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cpr", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cpr", DbType="NVarChar(15) NOT NULL", CanBeNull=false)]
 		public string Cpr
 		{
 			get
@@ -185,7 +185,7 @@ namespace Dal_SOFD.LORA
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Position", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Position", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
 		public string Position
 		{
 			get
@@ -233,8 +233,8 @@ namespace Dal_SOFD.LORA
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ans_dato", DbType="DateTime NOT NULL")]
-		public System.DateTime Ans_dato
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ans_dato", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Ans_dato
 		{
 			get
 			{

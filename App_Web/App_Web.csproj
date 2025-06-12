@@ -46,6 +46,8 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -60,12 +62,45 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Telerik.Web.UI">
-      <HintPath>..\lib\RCAJAX\2019.1.215.45\Telerik.Web.UI.dll</HintPath>
+    <Reference Include="Telerik.Licensing.Runtime">
+      <HintPath>..\lib\RCAJAX\2025.2.609.462\Telerik.Licensing.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Web.Spreadsheet">
+      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Web.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2025.2.609.462, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RCAJAX\2025.2.609.462\Telerik.Web.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Telerik.Web.UI.Skins">
-      <HintPath>..\lib\RCAJAX\2019.1.215.45\Telerik.Web.UI.Skins.dll</HintPath>
+      <HintPath>..\lib\RCAJAX\2025.2.609.462\Telerik.Web.UI.Skins.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Core">
+      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.DrawingML">
+      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.DrawingML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow">
+      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.Flow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet">
+      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip">
+      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Windows.Zip.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -76,16 +111,32 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Createuser.aspx" />
-    <Content Include="Createuser_test.aspx" />
     <Content Include="delete.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Global.asax" />
-    <Content Include="LoraWebservice.asmx" />
+    <Content Include="Images\Checked_16px.png" />
+    <Content Include="Images\Unchecked_16px.png" />
+    <Content Include="EmployeeWebservice.asmx" />
     <Content Include="Scripts\bootstrap4-toggle.js" />
     <Content Include="Scripts\bootstrap4-toggle.min.css" />
+    <Content Include="Styles\StyleSheet_ITBrugeroprettelse.css" />
     <Content Include="Success.aspx" />
     <Content Include="Views\CreateUser.aspx" />
+    <Content Include="Web References\SofdCoreAPI_WebService\OrgUnit.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SofdCoreAPI_WebService\Person.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SofdCoreAPI_WebService\EmployeeAffiliationWithoutADUser.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\SofdCoreAPI_WebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SofdCoreAPI_WebService\SofdCoreAPI_WebService.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -98,18 +149,11 @@
     <Compile Include="Createuser.aspx.designer.cs">
       <DependentUpon>Createuser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Createuser_test.aspx.cs">
-      <DependentUpon>Createuser_test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Createuser_test.aspx.designer.cs">
-      <DependentUpon>Createuser_test.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="LoraWebservice.asmx.cs">
-      <DependentUpon>LoraWebservice.asmx</DependentUpon>
+    <Compile Include="EmployeeWebservice.asmx.cs">
+      <DependentUpon>EmployeeWebservice.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,14 +177,19 @@
     <Compile Include="Views\CreateUser.aspx.designer.cs">
       <DependentUpon>CreateUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web References\SofdCoreAPI_WebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Web References\SofdCoreAPI_WebService\SofdCoreAPI_WebService.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -151,15 +200,20 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dal_SOFD\Dal_SOFD.csproj">
-      <Project>{b2141fc3-5cf4-4f0b-b1e2-90829e8e2f62}</Project>
-      <Name>Dal_SOFD</Name>
+    <ProjectReference Include="..\..\Brugeradgange_Servicedesk\DAL.RPA_CuraBrugere\DAL.RPA_CuraBrugere.csproj">
+      <Project>{e6b9256b-d9c5-46d0-b83a-b7bee780cc3c}</Project>
+      <Name>DAL.RPA_CuraBrugere</Name>
     </ProjectReference>
     <ProjectReference Include="..\Lib_ActiveDirectory\Lib_ActiveDirectory.csproj">
       <Project>{4094640f-d5eb-4449-a50f-72bbb7afe162}</Project>
       <Name>Lib_ActiveDirectory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lib_azure_service\lib_azure_service.csproj">
+      <Project>{f347ce6a-8f3c-4210-9ee3-2a255413c6f0}</Project>
+      <Name>lib_azure_service</Name>
     </ProjectReference>
     <ProjectReference Include="..\Lib_runbook\Lib_runbook.csproj">
       <Project>{b8381b84-4b07-41fe-873f-3052afc0f0d1}</Project>
@@ -168,6 +222,25 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://sofdcore_apiwrapper.skb.local/WebServices/SofdCoreAPI_WebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SofdCoreAPI_WebService\</RelPath>
+      <UpdateFromURL>https://sofdcore_apiwrapper.skb.local/WebServices/SofdCoreAPI_WebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>App_Web_SofdCoreAPI_WebService_SofdCoreAPI_WebService</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -192,7 +265,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -33,3 +33,7 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+//TELERIK
+[assembly: global::Telerik.Licensing.EvidenceAttribute("eyJhbGciOiJSUzI1NiIsInR5cCI6IlRlbGVyaWsgTGljZW5zZSBFdmlkZW5jZSJ9.eyJjb2RlIjoiUkNBSkFYIiwidHlwZSI6InBlcnBldHVhbCIsImV4cGlyYXRpb24iOjE3NzIyOTE3OTQsInVzZXJJZCI6IjMwYzE5M2ZjLTQxZDEtNGQxMC1hNTc1LThhMzU5MTJlZDdkNSIsImxpY2Vuc2VJZCI6ImRiM2U2NmU5LWVmOTctNGU4Yy1hZjVjLTQxZTU4MTdjMjY3ZSJ9.sJR5pUSrV4uy1NB0aB7y4oKjJ0JRGyJC0FUAbSyTWKHYT6ptfPDh9UIXNV3En6QKkaS3lGYACeP2FZS1bLTpOfO87ay4GX8X1lxBOyGsv5Js6sH7-0RTgz5qbhQZg1HMbJzNjmQsi_ATG-0G4DnLjisgfk_IgNlgPhqZ5Li0wMWuFYisdd4rC2QX8Zi4GwBPsN_IBe1-EBWV3_nDDOIPT0MiGeCmEAlIK5uJHi7ltPppPccgdGWIY3h1OZsX7GCS7_m7Y4l-GIRpNmB9ov_ix1wLRtQ2HpppvIgQou7E_L_MGr4BDtTE-qLl-7GVYxeC68jn5iGjc5v6ak4mSJseew")]
+

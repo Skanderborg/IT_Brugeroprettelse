@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Skanderborg.dk/xml/Schemas" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://Skanderborg.dk/xml/Schemas" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Skanderborg.dk/xml/Schemas">
+      <s:element name="SendMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="azureMailModel" type="tns:AzureMailModel" />
+            <s:element minOccurs="0" maxOccurs="1" name="azureWebhookURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AzureMailModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="To" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Bcc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncludeDefaultSignatur" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileNames" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttachmentBase64Strings" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMailResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMail_Basic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="body" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="azureWebhookURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMail_BasicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMail_BasicResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMail_CcAndBcc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="body" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bcc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="azureWebhookURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMail_CcAndBccResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMail_CcAndBccResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMail_DefaultSignature">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="body" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bcc" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeDefaultSignature" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="azureWebhookURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMail_DefaultSignatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMail_DefaultSignatureResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMail_Attachments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="body" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bcc" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeDefaultSignature" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileNames" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="attachmentBase64Strings" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="azureWebhookURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMail_AttachmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMail_AttachmentsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMail_CalendarBooking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="body" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bcc" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeDefaultSignature" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="calendarEvent" type="tns:CalendarEventAttachmentModel" />
+            <s:element minOccurs="0" maxOccurs="1" name="azureWebhookURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CalendarEventAttachmentModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EventSummary" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventStartDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventEndDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventIsAllDay" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventAttachmentFileName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendMail_CalendarBookingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMail_CalendarBookingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMail" />
+  </wsdl:message>
+  <wsdl:message name="SendMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMail_BasicSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMail_Basic" />
+  </wsdl:message>
+  <wsdl:message name="SendMail_BasicSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMail_BasicResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMail_CcAndBccSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMail_CcAndBcc" />
+  </wsdl:message>
+  <wsdl:message name="SendMail_CcAndBccSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMail_CcAndBccResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMail_DefaultSignatureSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMail_DefaultSignature" />
+  </wsdl:message>
+  <wsdl:message name="SendMail_DefaultSignatureSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMail_DefaultSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMail_AttachmentsSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMail_Attachments" />
+  </wsdl:message>
+  <wsdl:message name="SendMail_AttachmentsSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMail_AttachmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMail_CalendarBookingSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMail_CalendarBooking" />
+  </wsdl:message>
+  <wsdl:message name="SendMail_CalendarBookingSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMail_CalendarBookingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SendMail_WebServiceSoap">
+    <wsdl:operation name="SendMail">
+      <wsdl:input message="tns:SendMailSoapIn" />
+      <wsdl:output message="tns:SendMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_Basic">
+      <wsdl:input message="tns:SendMail_BasicSoapIn" />
+      <wsdl:output message="tns:SendMail_BasicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_CcAndBcc">
+      <wsdl:input message="tns:SendMail_CcAndBccSoapIn" />
+      <wsdl:output message="tns:SendMail_CcAndBccSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_DefaultSignature">
+      <wsdl:input message="tns:SendMail_DefaultSignatureSoapIn" />
+      <wsdl:output message="tns:SendMail_DefaultSignatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_Attachments">
+      <wsdl:input message="tns:SendMail_AttachmentsSoapIn" />
+      <wsdl:output message="tns:SendMail_AttachmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_CalendarBooking">
+      <wsdl:input message="tns:SendMail_CalendarBookingSoapIn" />
+      <wsdl:output message="tns:SendMail_CalendarBookingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SendMail_WebServiceSoap" type="tns:SendMail_WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMail">
+      <soap:operation soapAction="http://Skanderborg.dk/xml/Schemas/SendMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_Basic">
+      <soap:operation soapAction="http://Skanderborg.dk/xml/Schemas/SendMail_Basic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_CcAndBcc">
+      <soap:operation soapAction="http://Skanderborg.dk/xml/Schemas/SendMail_CcAndBcc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_DefaultSignature">
+      <soap:operation soapAction="http://Skanderborg.dk/xml/Schemas/SendMail_DefaultSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_Attachments">
+      <soap:operation soapAction="http://Skanderborg.dk/xml/Schemas/SendMail_Attachments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_CalendarBooking">
+      <soap:operation soapAction="http://Skanderborg.dk/xml/Schemas/SendMail_CalendarBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SendMail_WebServiceSoap12" type="tns:SendMail_WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMail">
+      <soap12:operation soapAction="http://Skanderborg.dk/xml/Schemas/SendMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_Basic">
+      <soap12:operation soapAction="http://Skanderborg.dk/xml/Schemas/SendMail_Basic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_CcAndBcc">
+      <soap12:operation soapAction="http://Skanderborg.dk/xml/Schemas/SendMail_CcAndBcc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_DefaultSignature">
+      <soap12:operation soapAction="http://Skanderborg.dk/xml/Schemas/SendMail_DefaultSignature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_Attachments">
+      <soap12:operation soapAction="http://Skanderborg.dk/xml/Schemas/SendMail_Attachments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail_CalendarBooking">
+      <soap12:operation soapAction="http://Skanderborg.dk/xml/Schemas/SendMail_CalendarBooking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SendMail_WebService">
+    <wsdl:port name="SendMail_WebServiceSoap" binding="tns:SendMail_WebServiceSoap">
+      <soap:address location="https://sendmailviaazurewebhook.skb.local/SendMail_WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SendMail_WebServiceSoap12" binding="tns:SendMail_WebServiceSoap12">
+      <soap12:address location="https://sendmailviaazurewebhook.skb.local/SendMail_WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

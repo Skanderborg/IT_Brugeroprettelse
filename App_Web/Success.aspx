@@ -14,7 +14,7 @@
     <div class="container">
       <div class="alert alert-success" role="alert">
         <h3>Din bestilling af IT bruger er modtaget.</h3>
-        <p>Du vil modtage en mail med bruger detaljer og password i løbet af de næste 5-10minutter.</p>
+        <p>Du vil modtage en mail med instruktion vedr. den nye IT-bruger i løbet af de næste 5-10 minutter.</p>
       </div>
     </div>
   </form>

@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Lib_runbook.OrchestratorApiService.OrchestratorApi.datasource" />
     <None Include="Service References\OrchestratorApiService\service.edmx" />
   </ItemGroup>
   <ItemGroup>

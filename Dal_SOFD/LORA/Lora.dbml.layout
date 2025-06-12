@@ -2,10 +2,10 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Lora">
   <DataContextMoniker Name="/LoraDataContext" />
   <nestedChildShapes>
-    <classShape Id="ede40f7f-938d-4fd6-b8be-e2c76c953722" absoluteBounds="6.125, 1.875, 2, 3.3093082682291666">
+    <classShape Id="951a8e65-2540-4baf-8e8b-f891037904d0" absoluteBounds="6.875, 2, 2, 3.3093082682291666">
       <DataClassMoniker Name="/LoraDataContext/v_ad_user_creation" />
       <nestedChildShapes>
-        <elementListCompartment Id="bbc391b5-0c3b-480e-9bf5-51e6aa8e91d8" absoluteBounds="6.14, 2.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="43e9b590-f7b3-48a1-8d2c-b780f50cb22f" absoluteBounds="6.89, 2.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

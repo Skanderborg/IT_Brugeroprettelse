@@ -1,43 +1,90 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Dal_SOFD.LORA;
 using Lib_runbook.Model;
 using Lib_runbook;
 using Lib_ActiveDirectory.Services;
+using lib_azure_service;
+using App_Web.SofdCoreAPI_WebService;
 
 namespace App_Web.Services
 {
     internal class CreateUserService
     {
-        //private CuraRoleRepo rolleRepo = new CuraRoleRepo();
-        private GroupPrincipalService adService = new GroupPrincipalService();
-        private PositionRepo posRepo = new PositionRepo(Properties.Settings.Default.LORA_Constr);
+
+        private GroupPrincipalService adService = new GroupPrincipalService();   
 
         /// <summary>
         /// fornavn, efternavn, samlet navn (displayname)
         /// </summary>
         /// <param name="opus_id"></param>
         /// <returns></returns>
-        internal Dictionary<string, string> GetEmployeeNames(int opus_id)
+        //internal Dictionary<string, string> GetEmployeeNames(int opus_id)
+        //{
+        //    Dictionary<string, string> res = new Dictionary<string, string>();
+
+        //    v_ad_user_creation pos = posRepo.Query.Where(p => p.Opus_id == opus_id).FirstOrDefault();
+        //    res["Firstname"] = pos.Firstname;
+        //    res["Lastname"] = pos.Lastname;
+        //    res["Fullname"] = pos.Fullname;
+        //    return res;
+        //}
+
+        /// <summary>
+        /// fornavn, efternavn, samlet navn (displayname)
+        /// </summary>
+        /// <param name="opus_id"></param>
+        /// <returns></returns>
+        internal Dictionary<string, string> GetEmployeeNamesFromSofdCore(int opus_id, List<EmployeeAffiliationWithoutADUser> employeeList)
         {
             Dictionary<string, string> res = new Dictionary<string, string>();
 
-            v_ad_user_creation pos = posRepo.Query.Where(p => p.Opus_id == opus_id).FirstOrDefault();
-            res["Firstname"] = pos.Firstname;
-            res["Lastname"] = pos.Lastname;
-            res["Fullname"] = pos.Fullname;
+            EmployeeAffiliationWithoutADUser employee = employeeList.Where(e => e.EmployeeId == opus_id.ToString()).FirstOrDefault();
+
+            //v_ad_user_creation pos = posRepo.Query.Where(p => p.Opus_id == opus_id).FirstOrDefault();
+            res["Firstname"] = employee.PersonFirstname;
+            res["Lastname"] = employee.PersonSurname;
+            res["Fullname"] = employee.PersonFirstname + " " + employee.PersonSurname;
+            res["Position"] = employee.AffliationPositionName;
             return res;
         }
 
-        private string GetCpr(int opus_id)
+        //private string GetCpr(int opus_id)
+        //{
+        //    return posRepo.Query.Where(p => p.Opus_id == opus_id).First().Cpr;         
+        //}
+
+        private string GetCprFromSofdCore(int opus_id)
         {
-            return posRepo.Query.Where(p => p.Opus_id == opus_id).First().Cpr;
+            string cpr = string.Empty;
+            string sofdCoreApiKey = Properties.Settings.Default.SofdCoreApiKey;
+
+            SofdCoreAPI_WebService.SofdCoreAPI_WebService ws = new SofdCoreAPI_WebService.SofdCoreAPI_WebService();
+            Person[] personList = ws.GetPersons_FromEmployeeID(opus_id.ToString(), sofdCoreApiKey);
+
+            if (personList.Count() == 1)
+            {
+                Person person = personList[0];
+
+                cpr = (from a in person.Affiliations
+                       where a.EmployeeId == opus_id.ToString()
+                       select person.Cpr
+                       ).FirstOrDefault();
+            }
+
+            return cpr;
         }
 
-        internal bool IsEmployee(int opus_id)
+        //internal bool IsEmployee(int opus_id)
+        //{
+        //    return posRepo.Query.Where(p => p.Opus_id == opus_id).Count() == 1;
+        //}
+
+        internal bool IsEmployeeInSofdCore(int opus_id, List<EmployeeAffiliationWithoutADUser> employeeList)
         {
-            return posRepo.Query.Where(p => p.Opus_id == opus_id).Count() == 1;
+            int count = employeeList.Where(e => e.EmployeeId == opus_id.ToString()).ToList().Count;
+
+            return count == 1;
         }
 
         internal string GetCurrentUserADUsername()
@@ -74,12 +121,10 @@ namespace App_Web.Services
                 string fornavn,
                 string efternavn,
                 string vistnavn,
+                string stillingsbetegnelse,
 
-                string managerSamaccount,
                 string coworkerSamaccount,
-                bool isEmail,
 
-                string kontaktTelefonNummer,
                 bool isSkype,
                 bool isRingegruppe,
                 string ringegruppeNummer,
@@ -90,8 +135,8 @@ namespace App_Web.Services
                 bool isFaellespostkasser,
                 string faellespostkasserNavne,
 
-                bool isNemID,
-                string ean,
+                //bool isNemID,
+                //string ean,
 
                 bool isCura,
                 string curaBrugerRolle,
@@ -102,24 +147,45 @@ namespace App_Web.Services
                 bool isKMDbruger,
                 string kMDUserProfiles,
 
-                bool isKMDOpusOkonomiBilagsbehandling,
-                string kMDProfitcenterOmkostningssted,
-                bool isKMDFaktura,
-                string kMDOpusOkonomiEan,
-                bool isKMDBudgetOmplacering,
-                bool isKMDMitForventedeRegnskab,
+                bool isKmdRollebaseret,
+                string kMDRollebaseretProfil,
+                string kMDRollebaseretProfitcenteransvar,
+                string kMDRollebaseretLederbogfore,
+                string kmdRollebaseretProfitcenterBogfoer,
+                string kMDRollebaseretEAN,
+                string kMDRollebaseretOrgEnhed,
+                string kMDRollebaseretRettighed,
 
-                bool isKMDLoenOgPersonale,
-                string kMDOrgUnit,
+                bool isKmdInstitution,
+                string kmdInstitutionProfil,
+                string kmdInstitutionInstitutionsnummer,
+
+                bool isTargit,
+
+                bool isEduca,
+                string educaUnilogin,
+                string educaSkolekode,
+                string educaRolle,
+
+                bool isEhandel,
+                string eHandelBrugerType,
+                string eHandelProfitCenter,
+                //string rakatKonteringsansvarlig,
+
+
+                //bool isKMDelev,
 
                 string bemaerkninger,
-                
+
                 string curaLoginORGs,
                 out string errorStr)
         {
             string bestillerSamaccount = GetCurrentUserADUsername();
-            string cpr = GetCpr(int.Parse(opus_medarbejdernr));
-            Runbook_Operation ro = new Runbook_Operation()
+            string cpr = GetCprFromSofdCore(int.Parse(opus_medarbejdernr));
+
+
+            JsonService js = new JsonService();
+            Azure_user_model json_model = new Azure_user_model()
             {
                 BestillerSamaccount = bestillerSamaccount,
                 Opus_medarbejdernr = opus_medarbejdernr,
@@ -127,12 +193,11 @@ namespace App_Web.Services
                 Fornavn = fornavn,
                 Efternavn = efternavn,
                 Vistnavn = vistnavn,
+                Stillingsbetegnelse = stillingsbetegnelse,
 
-                ManagerSamaccount = managerSamaccount,
                 CoworkerSamaccount = coworkerSamaccount,
-                IsEmail = isEmail,
+                //IsEmail = true,
 
-                KontaktTelefonNummer = kontaktTelefonNummer,
                 IsSkype = isSkype,
                 IsRingegruppe = isRingegruppe,
                 RingegruppeNummer = ringegruppeNummer,
@@ -143,33 +208,59 @@ namespace App_Web.Services
                 IsFaellespostkasser = isFaellespostkasser,
                 FaellespostkasserNavne = faellespostkasserNavne,
 
-                IsNemID = isNemID,
-                Ean = ean,
+                //IsNemID = isNemID,
+                //Ean = ean,
 
                 IsCura = isCura,
                 CuraBrugerRolle = curaBrugerRolle,
                 IsCuraPlanner = isCuraPlanner,
                 IsCuraFMK = isCuraFMK,
                 CuraFMKID = curaFMKID,
+                CuraLoginORGs = curaLoginORGs,
 
                 IsKMDbruger = isKMDbruger,
                 KMDUserProfiles = kMDUserProfiles,
 
-                IsKMDOpusOkonomiBilagsbehandling = isKMDOpusOkonomiBilagsbehandling,
-                KMDProfitcenterOmkostningssted = kMDProfitcenterOmkostningssted,
-                IsKMDFaktura = isKMDFaktura,
-                KMDOpusOkonomiEan = kMDOpusOkonomiEan,
-                IsKMDBudgetOmplacering = isKMDBudgetOmplacering,
-                IsKMDMitForventedeRegnskab = isKMDMitForventedeRegnskab,
+                IsKmdRollebaseret = isKmdRollebaseret,
+                KMDRollebaseretProfil = kMDRollebaseretProfil,
+                KMDRollebaseretProfitcenteransvar = kMDRollebaseretProfitcenteransvar,
+                KMDRollebaseretLederbogfore = kMDRollebaseretLederbogfore,
+                KmdRollebaseretProfitcenterBogfoer = kmdRollebaseretProfitcenterBogfoer,
+                KMDRollebaseretEAN = kMDRollebaseretEAN,
+                KMDRollebaseretOrgEnhed = kMDRollebaseretOrgEnhed,
+                KMDRollebaseretRettighed = kMDRollebaseretRettighed,
 
-                IsKMDLoenOgPersonale = isKMDLoenOgPersonale,
-                KMDOrgUnit = kMDOrgUnit,
+                IsKmdInstitution = isKmdInstitution,
+                KmdInstitutionProfil = kmdInstitutionProfil,
+                KmdInstitutionInstitutionsnummer = kmdInstitutionInstitutionsnummer,
 
-                Bemaerkninger = bemaerkninger,
+                IsTargit = isTargit,
 
-                CuraLoginORGs = curaLoginORGs
+                IsEduca = isEduca,
+                EducaUnilogin = educaUnilogin,
+                EducaSkolekode = educaSkolekode,
+                EducaRolle = educaRolle,
+
+				IsEHandel = isEhandel,
+				EHandelBrugerType = eHandelBrugerType,
+				EHandelProfitCenter = eHandelProfitCenter,
+                //RakatKonteringsansvarlig = rakatKonteringsansvarlig,
+
+                //IsKMDelev = false, //isKMDelev,
+
+                Bemaerkninger = bemaerkninger
+
+
             };
-            return CreateADUser(ro, out errorStr);
+            js.PostJson(Properties.Settings.Default.azure_service, "apikey", json_model);
+
+            errorStr = "";
+            return true;
         }
+
+
+
+
+
     }
 }
