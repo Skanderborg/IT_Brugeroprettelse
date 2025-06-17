@@ -122,27 +122,42 @@ namespace lib_azure_service
         public string FaellespostkasserNavne { get; set; }
 
 
+		//Mandatory = $true
+		//[Boolean]$IsMUElev
+		//
+		[JsonProperty(PropertyName = "IsMUElev", Required = Required.Always)]
+		public bool IsMUElev { get; set; }
 
-        /// <summary>
-        /// Vælg øvrige programmer
-        /// </summary>
+		//$MUElevSkolekode
+		[JsonProperty(PropertyName = "MUElevSkolekode", Required = Required.AllowNull)]
+		public string MUElevSkolekode { get; set; }
 
-        //Mandatory = $true
-        //[Boolean]$IsNemID
-        //OBS: hvis der bestilles NemID, skal medarbejderen også have en e-mail.
-        //[JsonProperty(PropertyName = "IsNemID", Required = Required.Always)]
-        //public bool IsNemID { get; set; }
+		//$MUElevRolle
+		[JsonProperty(PropertyName = "MUElevRolle", Required = Required.AllowNull)]
+		public string MUElevRolle { get; set; }
 
-        //Mandatory = $false
-        //[string]$Ean
-        //Indtast EAN, som betaler for NemID og CuraFMK (er sat hvis der er Nemid eller CuraFMK):
-        //[JsonProperty(PropertyName = "Ean", Required = Required.AllowNull)]
-        //public string Ean { get; set; }
 
-        //Mandatory = $true
-        //[Boolean]$IsCura
-        // Skal brugeren have adgang til cura?
-        [JsonProperty(PropertyName = "IsCura", Required = Required.Always)]
+
+		/// <summary>
+		/// Vælg øvrige programmer
+		/// </summary>
+
+		//Mandatory = $true
+		//[Boolean]$IsNemID
+		//OBS: hvis der bestilles NemID, skal medarbejderen også have en e-mail.
+		//[JsonProperty(PropertyName = "IsNemID", Required = Required.Always)]
+		//public bool IsNemID { get; set; }
+
+		//Mandatory = $false
+		//[string]$Ean
+		//Indtast EAN, som betaler for NemID og CuraFMK (er sat hvis der er Nemid eller CuraFMK):
+		//[JsonProperty(PropertyName = "Ean", Required = Required.AllowNull)]
+		//public string Ean { get; set; }
+
+		//Mandatory = $true
+		//[Boolean]$IsCura
+		// Skal brugeren have adgang til cura?
+		[JsonProperty(PropertyName = "IsCura", Required = Required.Always)]
         public bool IsCura { get; set; }
 
         //Mandatory = $false

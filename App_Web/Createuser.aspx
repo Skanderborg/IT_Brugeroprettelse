@@ -82,7 +82,7 @@
                 <div class="form-group">
                     <asp:RadioButtonList ID="RbIsSkype" runat="server" Width="100" RepeatDirection="Horizontal" OnSelectedIndexChanged="RbIsSkype_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem Text="Ja"></asp:ListItem>
-                        <asp:ListItem Text="Nej"></asp:ListItem>
+                        <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
                     </asp:RadioButtonList>
                 <div class="smallLabel">Bruger kan godt deltage i online møder samt ringe internt uden et lokalnummer.</div>
 
@@ -126,7 +126,7 @@
                     <%--<asp:Label runat="server" ID="errDistributionslister" for="RbIsDistributionslister">Skal medarbejderen tilknyttes interne post-/distributionslister ud over standard for afdelingen?</asp:Label><label class="requiredfield">*</label>--%>
                     <asp:RadioButtonList ID="RbIsDistributionslister" runat="server" Width="100" RepeatDirection="Horizontal" OnSelectedIndexChanged="RbIsDistributionslister_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem Text="Ja"></asp:ListItem>
-                        <asp:ListItem Text="Nej"></asp:ListItem>
+                        <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
                 <asp:Panel runat="server" Visible="false" ID="panelDistributionslister" CssClass="leftIndent">
@@ -145,7 +145,7 @@
                     <%--<asp:Label runat="server" ID="errFallespostkasser" for="RbIsFaellespostkasser">Skal medarbejderen have rettigheder til fælles-/offentlige postkasser?</asp:Label><label class="requiredfield">*</label>--%>
                     <asp:RadioButtonList ID="RbIsFaellespostkasser" runat="server" Width="100" RepeatDirection="Horizontal" OnSelectedIndexChanged="RbIsFaellespostkasser_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem Text="Ja"></asp:ListItem>
-                        <asp:ListItem Text="Nej"></asp:ListItem>
+                        <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
                 <asp:Panel runat="server" Visible="false" ID="panelFallespostkasser" CssClass="leftIndent">
@@ -159,26 +159,44 @@
                     </div>
                 </asp:Panel>
 
-
-                <h5>Vælg øvrige programmer</h5>
-                <%--                <div class="radioButtonHeader">
-                    <telerik:RadLabel runat="server" ID="ErrorNemId">NemID</telerik:RadLabel>
+                <div class="radioButtonHeader">
+                    <telerik:RadLabel runat="server" ID="ErrorMUElev">MU Elev og Min Uddannelse?</telerik:RadLabel>
                     <telerik:RadLabel runat="server" ForeColor="Red" Font-Size="18" Text="*"></telerik:RadLabel>
-                </div>--%>
-                <%--                <div class="form-group">
- 
-                    <asp:RadioButtonList ID="RbIsNemID" runat="server" Width="100" RepeatDirection="Horizontal" OnSelectedIndexChanged="RbIsNemID_SelectedIndexChanged" AutoPostBack="true">
+                </div>
+                <div class="form-group">
+                    <asp:RadioButtonList ID="RblIsMUElev" runat="server" Width="100" RepeatDirection="Horizontal" OnSelectedIndexChanged="RblIsMUElev_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem Text="Ja"></asp:ListItem>
-                        <asp:ListItem Text="Nej"></asp:ListItem>
+                        <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
-                <asp:Panel ID="panelNemId" runat="server" Visible="false" CssClass="leftIndent">
+                <asp:Panel ID="PanelMUElev" runat="server" Visible="false" CssClass="leftIndent">
+ 
                     <div class="form-group">
-                        <div for="TxbEan" class="inputLabel">Indtast EAN nummer, som betaler for NemID:</div>
+                        <div for="TxtBoxMUElev_Skolekode" class="inputLabel">Skolekode:</div>
                         <div class="requiredfield">*</div>
-                        <telerik:RadTextBox runat="server" ID="TxbEan" Width="100%" />
+                        <%--<label for="TxbEducaPersonale_skolekode">Skolekode:</label><label class="requiredfield">*</label>--%>
+                        <telerik:RadTextBox runat="server" ID="TxtBoxMUElev_Skolekode" Width="100%" />
                     </div>
-                </asp:Panel>--%>
+                    <div class="radioButtonHeader">
+                        <telerik:RadLabel runat="server" ID="ErrorMUElev_Rolle">Rolle:</telerik:RadLabel>
+                        <telerik:RadLabel runat="server" ForeColor="Red" Font-Size="16" Text="*"></telerik:RadLabel>
+                    </div>
+                    <div class="form-group">
+                        <%--<asp:Label runat="server" ID="errEducaPersonale_Role" for="RbEducaPersonale_Role">Rolle:</asp:Label><label class="requiredfield">*</label>--%>
+                        <asp:RadioButtonList ID="RblMUElev_Rolle" runat="server" Width="100%" RepeatDirection="Vertical">
+                            <asp:ListItem Value="Administrativt Personale">Administrativt Personale (MU-Elev) <label class="smallLabel">Tildeles til Administrativt personale på skolen. Giver adgang til at administrere den enkelte skole ift. indskrivning, stamdata opsætning af fravær mm.</label>
+                            </asp:ListItem>
+
+                            <asp:ListItem Text="Skoleadministrator (MinUddannelse)" Value="Skoleadministrator">Skoleadministrator (MinUddannelse) <label class="smallLabel">Tildeles til Administrativt personale på skolen. Giver adgang til at administrere den enkelte skole ift. opsætning af læringsplatformen.</label>
+                            </asp:ListItem>
+                            <asp:ListItem Text="Skoleleder (MinUddannelse)" Value="Skoleleder">Skoleleder (MinUddannelse)<label class="smallLabel">Tildeles til Skoleleder. Giver adgang til ledelsesinformation på skole niveau.</label>
+                            </asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
+                </asp:Panel>
+
+
+                <h5>Vælg øvrige programmer</h5>
 
                 <div class="radioButtonHeader">
                     <telerik:RadLabel runat="server" ID="ErrorCura">Cura</telerik:RadLabel>
@@ -189,7 +207,7 @@
 
                     <asp:RadioButtonList ID="RbIsCura" runat="server" Width="100" RepeatDirection="Horizontal" OnSelectedIndexChanged="RbIsCura_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem Text="Ja"></asp:ListItem>
-                        <asp:ListItem Text="Nej"></asp:ListItem>
+                        <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
 
@@ -319,7 +337,7 @@
                     <%--<asp:Label runat="server" ID="errOpusOko" for="RbIsKMDOpusOkonomiBilagsbehandling">Opus Rollebaseret indgang</asp:Label><label class="requiredfield">*</label>--%>
                     <asp:RadioButtonList ID="RbIsRollebaseret" runat="server" Width="100" RepeatDirection="Horizontal" OnSelectedIndexChanged="RbIsKMDOpusOkonomiBilagsbehandling_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem Text="Ja"></asp:ListItem>
-                        <asp:ListItem Text="Nej"></asp:ListItem>
+                        <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
                 <asp:Panel runat="server" ID="PanelRollebaseret" Visible="false">
@@ -563,7 +581,7 @@
                 <div class="form-group">
                     <asp:RadioButtonList ID="RbIsKmdInstitution" runat="server" Width="100" RepeatDirection="Horizontal" OnSelectedIndexChanged="RbIsKmdInstitution_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem Text="Ja"></asp:ListItem>
-                        <asp:ListItem Text="Nej"></asp:ListItem>
+                        <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
                 <asp:Panel ID="PanelKmdInstitution" runat="server" Visible="false">
@@ -606,7 +624,7 @@
                 <div class="form-group">
                     <asp:RadioButtonList ID="RbIsKMDbruger" runat="server" Width="100" RepeatDirection="Horizontal" OnSelectedIndexChanged="RbIsKMDbruger_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem Text="Ja"></asp:ListItem>
-                        <asp:ListItem Text="Nej"></asp:ListItem>
+                        <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
                 <asp:Panel ID="panelKMD" runat="server" Visible="false" CssClass="leftIndent">
@@ -630,7 +648,7 @@
                     <%--<asp:Label runat="server" ID="errTargit" for="RbIsTargit">Targit adgang?</asp:Label><label class="requiredfield">*</label>--%>
                     <asp:RadioButtonList ID="RbIsTargit" runat="server" Width="100" RepeatDirection="Horizontal">
                         <asp:ListItem Text="Ja"></asp:ListItem>
-                        <asp:ListItem Text="Nej"></asp:ListItem>
+                        <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
                     </asp:RadioButtonList>
                     <%--<small id="targithelp" class="form-text text-muted">Oprettelse videresendes automatisk til Budget- og Analyseteam.</small>--%>
                     <div class="smallLabel">Oprettelse videresendes automatisk til Budget- og Analyseteam.</div>
@@ -644,7 +662,7 @@
                     <%--<asp:Label runat="server" ID="errEducaPersonale" for="RbIsEducaPersonale">Educa Personale?</asp:Label><label class="requiredfield">*</label>--%>
                     <asp:RadioButtonList ID="RbIsEducaPersonale" runat="server" Width="100" RepeatDirection="Horizontal" OnSelectedIndexChanged="RbIsEducaPersonale_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem Text="Ja"></asp:ListItem>
-                        <asp:ListItem Text="Nej"></asp:ListItem>
+                        <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
                 <asp:Panel ID="panel_educapersonale" runat="server" Visible="false" CssClass="leftIndent">
@@ -682,7 +700,7 @@
                     <%--<asp:Label runat="server" ID="errRBIsRakat" for="RBIsRakat">E-handelssystem?</asp:Label><label class="requiredfield">*</label>--%>
                     <asp:RadioButtonList ID="RBisEhandel" runat="server" Width="100" RepeatDirection="Horizontal" OnSelectedIndexChanged="RBIsRakat_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem Text="Ja"></asp:ListItem>
-                        <asp:ListItem Text="Nej"></asp:ListItem>
+                        <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
                     </asp:RadioButtonList>
                     <%--<small id="RBIsRakathelptext" class="form-text text-muted">Oprettelse videresendes automatisk til systemadministrator.</small>--%>
                     <div class="smallLabel">Oprettelse videresendes automatisk til systemadministrator.</div>

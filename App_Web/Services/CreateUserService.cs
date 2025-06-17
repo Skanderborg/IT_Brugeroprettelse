@@ -135,10 +135,11 @@ namespace App_Web.Services
                 bool isFaellespostkasser,
                 string faellespostkasserNavne,
 
-                //bool isNemID,
-                //string ean,
+                bool isMUElev,
+                string mUElevSkolekode,
+                string mUElevRolle,
 
-                bool isCura,
+				bool isCura,
                 string curaBrugerRolle,
                 bool isCuraPlanner,
                 bool isCuraFMK,
@@ -170,10 +171,6 @@ namespace App_Web.Services
                 bool isEhandel,
                 string eHandelBrugerType,
                 string eHandelProfitCenter,
-                //string rakatKonteringsansvarlig,
-
-
-                //bool isKMDelev,
 
                 string bemaerkninger,
 
@@ -208,8 +205,9 @@ namespace App_Web.Services
                 IsFaellespostkasser = isFaellespostkasser,
                 FaellespostkasserNavne = faellespostkasserNavne,
 
-                //IsNemID = isNemID,
-                //Ean = ean,
+                IsMUElev = isMUElev,
+                MUElevSkolekode = mUElevSkolekode,
+                MUElevRolle = mUElevRolle,
 
                 IsCura = isCura,
                 CuraBrugerRolle = curaBrugerRolle,
@@ -244,12 +242,8 @@ namespace App_Web.Services
 				IsEHandel = isEhandel,
 				EHandelBrugerType = eHandelBrugerType,
 				EHandelProfitCenter = eHandelProfitCenter,
-                //RakatKonteringsansvarlig = rakatKonteringsansvarlig,
-
-                //IsKMDelev = false, //isKMDelev,
 
                 Bemaerkninger = bemaerkninger
-
 
             };
             js.PostJson(Properties.Settings.Default.azure_service, "apikey", json_model);

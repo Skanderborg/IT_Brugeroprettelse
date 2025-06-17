@@ -267,6 +267,60 @@ namespace App_Web
 		protected global::Telerik.Web.UI.RadTextBox TxbFaellespostkasserNavne;
 
 		/// <summary>
+		/// ErrorMUElev control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::Telerik.Web.UI.RadLabel ErrorMUElev;
+
+		/// <summary>
+		/// RblIsMUElev control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RadioButtonList RblIsMUElev;
+
+		/// <summary>
+		/// PanelMUElev control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Panel PanelMUElev;
+
+		/// <summary>
+		/// TxtBoxMUElev_Skolekode control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::Telerik.Web.UI.RadTextBox TxtBoxMUElev_Skolekode;
+
+		/// <summary>
+		/// ErrorMUElev_Rolle control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::Telerik.Web.UI.RadLabel ErrorMUElev_Rolle;
+
+		/// <summary>
+		/// RblMUElev_Rolle control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RadioButtonList RblMUElev_Rolle;
+
+		/// <summary>
 		/// ErrorCura control.
 		/// </summary>
 		/// <remarks>
