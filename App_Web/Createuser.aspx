@@ -84,7 +84,7 @@
                         <asp:ListItem Text="Ja"></asp:ListItem>
                         <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
                     </asp:RadioButtonList>
-                <div class="smallLabel">Bruger kan godt deltage i online møder samt ringe internt uden et lokalnummer.</div>
+                    <div class="smallLabel">Bruger kan godt deltage i online møder samt ringe internt uden et lokalnummer.</div>
 
                 </div>
                 <asp:Panel ID="panelSkype" Visible="false" runat="server" CssClass="leftIndent">
@@ -112,11 +112,11 @@
                     <div for="TxbMobilNummer" class="inputLabel">Indtast evt. medarbejderens kontakt mobilnummer:</div>
                     <telerik:RadTextBox runat="server" ID="TxbMobilNummer" Width="100%" EmptyMessage="Indtast Mobilnummer" />
                     <div class="smallLabel">Nummeret kan fremsøges i Outlook/Teams.</div>
-                    
+
                 </div>
 
 
-                <h5>Vælg øvrige rettigheder</h5>
+                <h5>Oplysninger om distributionslister og postkasser</h5>
 
                 <div class="radioButtonHeader">
                     <telerik:RadLabel runat="server" ID="ErrorDistributionslister">Skal medarbejderen tilknyttes interne post-/distributionslister ud over standard for afdelingen?</telerik:RadLabel>
@@ -159,41 +159,6 @@
                     </div>
                 </asp:Panel>
 
-                <div class="radioButtonHeader">
-                    <telerik:RadLabel runat="server" ID="ErrorMUElev">MU Elev og Min Uddannelse?</telerik:RadLabel>
-                    <telerik:RadLabel runat="server" ForeColor="Red" Font-Size="18" Text="*"></telerik:RadLabel>
-                </div>
-                <div class="form-group">
-                    <asp:RadioButtonList ID="RblIsMUElev" runat="server" Width="100" RepeatDirection="Horizontal" OnSelectedIndexChanged="RblIsMUElev_SelectedIndexChanged" AutoPostBack="true">
-                        <asp:ListItem Text="Ja"></asp:ListItem>
-                        <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
-                    </asp:RadioButtonList>
-                </div>
-                <asp:Panel ID="PanelMUElev" runat="server" Visible="false" CssClass="leftIndent">
- 
-                    <div class="form-group">
-                        <div for="TxtBoxMUElev_Skolekode" class="inputLabel">Skolekode:</div>
-                        <div class="requiredfield">*</div>
-                        <%--<label for="TxbEducaPersonale_skolekode">Skolekode:</label><label class="requiredfield">*</label>--%>
-                        <telerik:RadTextBox runat="server" ID="TxtBoxMUElev_Skolekode" Width="100%" />
-                    </div>
-                    <div class="radioButtonHeader">
-                        <telerik:RadLabel runat="server" ID="ErrorMUElev_Rolle">Rolle:</telerik:RadLabel>
-                        <telerik:RadLabel runat="server" ForeColor="Red" Font-Size="16" Text="*"></telerik:RadLabel>
-                    </div>
-                    <div class="form-group">
-                        <%--<asp:Label runat="server" ID="errEducaPersonale_Role" for="RbEducaPersonale_Role">Rolle:</asp:Label><label class="requiredfield">*</label>--%>
-                        <asp:RadioButtonList ID="RblMUElev_Rolle" runat="server" Width="100%" RepeatDirection="Vertical">
-                            <asp:ListItem Value="Administrativt Personale">Administrativt Personale (MU-Elev) <label class="smallLabel">Tildeles til Administrativt personale på skolen. Giver adgang til at administrere den enkelte skole ift. indskrivning, stamdata opsætning af fravær mm.</label>
-                            </asp:ListItem>
-
-                            <asp:ListItem Text="Skoleadministrator (MinUddannelse)" Value="Skoleadministrator">Skoleadministrator (MinUddannelse) <label class="smallLabel">Tildeles til Administrativt personale på skolen. Giver adgang til at administrere den enkelte skole ift. opsætning af læringsplatformen.</label>
-                            </asp:ListItem>
-                            <asp:ListItem Text="Skoleleder (MinUddannelse)" Value="Skoleleder">Skoleleder (MinUddannelse)<label class="smallLabel">Tildeles til Skoleleder. Giver adgang til ledelsesinformation på skole niveau.</label>
-                            </asp:ListItem>
-                        </asp:RadioButtonList>
-                    </div>
-                </asp:Panel>
 
 
                 <h5>Vælg øvrige programmer</h5>
@@ -601,6 +566,7 @@
                                     <telerik:RadComboBoxItem Text="Læseadgang" Value="LAESEADGANG" />
                                 </Items>
                             </telerik:RadComboBox>
+                            <a href="https://intranet.skanderborg.dk/kmd-institution-I2?item=2679758" class="smallLink" target="_blank">Se Børn og Unges side vedr. KMD Institution</a>
                         </div>
                     </div>
                 </asp:Panel>
@@ -612,10 +578,10 @@
                             <div for="TxtBoxKmdInsttution_Institutionsnummer" class="inputLabel">Angiv institutions ID:</div>
                             <div class="requiredfield">*</div>
                             <telerik:RadTextBox runat="server" ID="TxtBoxKmdInsttution_Institutionsnummer" Width="100%" />
-                            <div class="smallLabel"><a href="https://intranet.skanderborg.dk/systemer-og-programmer?item=2679758" target="_blank">Se oversigt over Institutions ID’er.</a></div>                            
+                            <div class="smallLabel"><a href="https://intranet.skanderborg.dk/systemer-og-programmer?item=2679758" target="_blank">Se oversigt over Institutions ID’er.</a></div>
                         </div>
-                        </div>
-                    </asp:Panel>
+                    </div>
+                </asp:Panel>
 
                 <div class="radioButtonHeader">
                     <telerik:RadLabel runat="server" ID="ErrorKMDBruger">KMD bruger, andre programmer?</telerik:RadLabel>
@@ -692,6 +658,49 @@
                     </div>
                 </asp:Panel>
 
+
+                <div class="radioButtonHeader">
+                    <telerik:RadLabel runat="server" ID="ErrorMUElev">MU Elev og Min Uddannelse?</telerik:RadLabel>
+                    <telerik:RadLabel runat="server" ForeColor="Red" Font-Size="18" Text="*"></telerik:RadLabel>
+                </div>
+                <div class="form-group">
+                    <asp:RadioButtonList ID="RblIsMUElev" runat="server" Width="100" RepeatDirection="Horizontal" OnSelectedIndexChanged="RblIsMUElev_SelectedIndexChanged" AutoPostBack="true">
+                        <asp:ListItem Text="Ja"></asp:ListItem>
+                        <asp:ListItem Text="Nej" Selected="True"></asp:ListItem>
+                    </asp:RadioButtonList>
+                </div>
+
+
+
+                <asp:Panel ID="PanelMUElev" runat="server" Visible="false" CssClass="leftIndent">
+
+                    <div class="form-group">
+                        <div for="TxtBoxMUElev_Skolekode" class="inputLabel">Skolekode:</div>
+                        <div class="requiredfield">*</div>
+                        <%--<label for="TxbEducaPersonale_skolekode">Skolekode:</label><label class="requiredfield">*</label>--%>
+                        <telerik:RadTextBox runat="server" ID="TxtBoxMUElev_Skolekode" Width="100%" />
+                    </div>
+                    <div class="radioButtonHeader">
+                        <telerik:RadLabel runat="server" ID="ErrorMUElev_Rolle">Rolle:</telerik:RadLabel>
+                        <telerik:RadLabel runat="server" ForeColor="Red" Font-Size="16" Text="*"></telerik:RadLabel>
+                    </div>
+                    <div class="form-group">
+                        <%--<asp:Label runat="server" ID="errEducaPersonale_Role" for="RbEducaPersonale_Role">Rolle:</asp:Label><label class="requiredfield">*</label>--%>
+                        <asp:RadioButtonList ID="RblMUElev_Rolle" runat="server" Width="100%" RepeatDirection="Vertical">
+                            <asp:ListItem Value="Administrativt Personale">Administrativt Personale (MU-Elev) <label class="smallLabel">Tildeles til Administrativt personale på skolen. Giver adgang til at administrere den enkelte skole ift. indskrivning, stamdata opsætning af fravær mm.</label>
+                            </asp:ListItem>
+
+                            <asp:ListItem Text="Skoleadministrator (MinUddannelse)" Value="Skoleadministrator">Skoleadministrator (MinUddannelse) <label class="smallLabel">Tildeles til Administrativt personale på skolen. Giver adgang til at administrere den enkelte skole ift. opsætning af læringsplatformen.</label>
+                            </asp:ListItem>
+                            <asp:ListItem Text="Skoleleder (MinUddannelse)" Value="Skoleleder">Skoleleder (MinUddannelse)<label class="smallLabel">Tildeles til Skoleleder. Giver adgang til ledelsesinformation på skole niveau.</label>
+                            </asp:ListItem>
+                        </asp:RadioButtonList>
+                        <a href="https://intranet.skanderborg.dk/mu-elev-og-minuddannelse?item=2915268" class="smallLink" target="_blank">Se Børn og Unges side vedr. MU Elev og Min Uddannelse</a>
+                    </div>
+                    
+                </asp:Panel>
+
+
                 <div class="radioButtonHeader">
                     <telerik:RadLabel runat="server" ID="ErrorRBIsRakat">E-handelssystem?</telerik:RadLabel>
                     <telerik:RadLabel runat="server" ForeColor="Red" Font-Size="16" Text="*"></telerik:RadLabel>
@@ -729,14 +738,14 @@
                         <%--<small id="Txb_rakat_profitomkoststed_help" class="form-text text-muted">Angiv det OPUS profitcenter der skal konteres på.</small>--%>
                     </div>
                 </asp:Panel>
-<%--                <asp:Panel ID="panel_rakat_konteringsansvarlig" runat="server" Visible="false" CssClass="leftIndent">
+                <%--                <asp:Panel ID="panel_rakat_konteringsansvarlig" runat="server" Visible="false" CssClass="leftIndent">
                     <div class="form-group">
                         <telerik:RadTextBox runat="server" ID="Txb_rakat_konteringsansvarlig" EmptyMessage="Angiv konteringsansvarlig" Width="100%" />
                         <small id="Txb_rakat_konteringsansvarlig_help" class="form-text text-muted">Angiv den konteringsansvarlige.</small>
                     </div>
                 </asp:Panel>--%>
 
-<%--                <div class="radioButtonHeader">
+                <%--                <div class="radioButtonHeader">
                     <telerik:RadLabel runat="server" ID="ErrorKMDelev">KMD Elev?</telerik:RadLabel>
                     <telerik:RadLabel runat="server" ForeColor="Red" Font-Size="16" Text="*"></telerik:RadLabel>
                 </div>
@@ -758,7 +767,7 @@
                 </div>
             </asp:Panel>
             <telerik:RadButton runat="server" AutoPostBack="true" ID="Button_submit" ButtonType="StandardButton" Text="OPRET BRUGER" OnClick="Button_submit_Click" Enabled="true"
-                Font-Bold="true" Font-Size="20" Width="300" Height="35" SingleClick="true"  SingleClickText="Sender..." />
+                Font-Bold="true" Font-Size="20" Width="300" Height="35" SingleClick="true" SingleClickText="Sender..." />
         </div>
 
 
