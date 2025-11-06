@@ -62,45 +62,54 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Telerik.Licensing.Runtime">
-      <HintPath>..\lib\RCAJAX\2025.2.609.462\Telerik.Licensing.Runtime.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Telerik.Web.Spreadsheet">
-      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Web.Spreadsheet.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Telerik.Web.UI, Version=2025.2.609.462, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+    <Reference Include="Telerik.Licensing.Runtime, Version=1.6.16.0, Culture=neutral, PublicKeyToken=98bb5b04e55c09ef, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\RCAJAX\2025.2.609.462\Telerik.Web.UI.dll</HintPath>
+      <HintPath>..\lib\RCAJAX\2025.3.825.462\Telerik.Licensing.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Web.UI.Skins">
-      <HintPath>..\lib\RCAJAX\2025.2.609.462\Telerik.Web.UI.Skins.dll</HintPath>
+    <Reference Include="Telerik.Web.Spreadsheet, Version=2025.3.812.462, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RCAJAX\2025.3.825.462\AdditionalLibraries\Bin462\Telerik.Web.Spreadsheet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Core">
-      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.Core.dll</HintPath>
+    <Reference Include="Telerik.Web.UI, Version=2025.3.825.462, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RCAJAX\2025.3.825.462\Telerik.Web.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.DrawingML">
-      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.DrawingML.dll</HintPath>
+    <Reference Include="Telerik.Web.UI.Skins, Version=2025.3.825.462, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RCAJAX\2025.3.825.462\Telerik.Web.UI.Skins.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Flow">
-      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.Flow.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Core, Version=2025.3.806.462, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RCAJAX\2025.3.825.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Spreadsheet">
-      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.DrawingML, Version=2025.3.806.462, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RCAJAX\2025.3.825.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.DrawingML.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml">
-      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Flow, Version=2025.3.806.462, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RCAJAX\2025.3.825.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.Flow.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Zip">
-      <HintPath>..\lib\RCAJAX\2025.2.609.462\AdditionalLibraries\Bin462\Telerik.Windows.Zip.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet, Version=2025.3.806.462, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RCAJAX\2025.3.825.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml, Version=2025.3.806.462, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RCAJAX\2025.3.825.462\AdditionalLibraries\Bin462\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip, Version=2025.3.806.462, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RCAJAX\2025.3.825.462\AdditionalLibraries\Bin462\Telerik.Windows.Zip.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -206,6 +215,10 @@
     <ProjectReference Include="..\..\Brugeradgange_Servicedesk\DAL.RPA_CuraBrugere\DAL.RPA_CuraBrugere.csproj">
       <Project>{e6b9256b-d9c5-46d0-b83a-b7bee780cc3c}</Project>
       <Name>DAL.RPA_CuraBrugere</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.ITBrugeroprettelse\DAL.ITBrugeroprettelse.csproj">
+      <Project>{317e2242-1628-4d04-b083-155a7b4a0ff5}</Project>
+      <Name>DAL.ITBrugeroprettelse</Name>
     </ProjectReference>
     <ProjectReference Include="..\Lib_ActiveDirectory\Lib_ActiveDirectory.csproj">
       <Project>{4094640f-d5eb-4449-a50f-72bbb7afe162}</Project>

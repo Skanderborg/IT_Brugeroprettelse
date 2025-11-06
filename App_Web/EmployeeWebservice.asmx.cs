@@ -37,6 +37,7 @@ namespace App_Web
 				foreach (EmployeeAffiliationWithoutADUser employee in employeeList.Where(e => e.PersonCpr.ToLower().StartsWith(searchterm)
 				|| e.PersonFirstname.ToLower().Contains(searchterm)
 				|| e.PersonSurname.ToLower().Contains(searchterm)
+				|| (e.PersonFirstname + ' ' +  e.PersonSurname).ToLower().Contains(searchterm)
 				))
 				{
 					RadComboBoxItemData item = new RadComboBoxItemData();

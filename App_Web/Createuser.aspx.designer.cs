@@ -933,13 +933,13 @@ namespace App_Web
 		protected global::System.Web.UI.WebControls.Panel PanelMUElev;
 
 		/// <summary>
-		/// TxtBoxMUElev_Skolekode control.
+		/// ComboMUElev_Skolekode control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::Telerik.Web.UI.RadTextBox TxtBoxMUElev_Skolekode;
+		protected global::Telerik.Web.UI.RadComboBox ComboMUElev_Skolekode;
 
 		/// <summary>
 		/// ErrorMUElev_Rolle control.

@@ -1,5 +1,6 @@
 ﻿using App_Web.Services;
 using App_Web.SofdCoreAPI_WebService;
+using DAL.ITBrugeroprettelse.Data;
 using DAL.RPA_CuraBrugere.Data;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace App_Web
 		private System.Drawing.Color colNoErr = System.Drawing.Color.LightGray;
 		private System.Drawing.Color colNoErrLabel = System.Drawing.Color.Black;
 
+		private DAL.ITBrugeroprettelse.Data.IRepo<Skolekode> skolekodeRepo = new SkolekodeRepo(Properties.Settings.Default.ConnectionStringITBrugeroprettelse);
 		private DAL.RPA_CuraBrugere.Data.IRepo<DisabledGroupName> disabledGroupNameRepo = new DisabledGroupNamesRepo(Properties.Settings.Default.ConnectionStringCuraBrugere);
 
 		private static List<EmployeeAffiliationWithoutADUser> employeesWithoutADUser;
@@ -27,6 +29,7 @@ namespace App_Web
 			{
 				LoadCuraRoles();
 				LoadCuraLOrg();
+				LoadComboSkole(ComboMUElev_Skolekode);
 
 
 				List<EmployeeAffiliationWithoutADUser> employeeList = LoadUserWithoutADUserList();
@@ -34,8 +37,6 @@ namespace App_Web
 				employeesWithoutADUser = employeeList;
 			}
 		}
-
-
 
 
 		private List<EmployeeAffiliationWithoutADUser> LoadUserWithoutADUserList()
@@ -64,6 +65,27 @@ namespace App_Web
 			}
 
 			return disabledList;
+		}
+
+		public void LoadComboSkole(RadComboBox combo)
+		{
+			combo.Items.Clear();
+			List<Skolekode> list = GetSkolekodeList();
+
+			foreach (Skolekode skolekode in list)
+			{
+				RadComboBoxItem comboItem = new RadComboBoxItem();
+				comboItem.Value = skolekode.Insttutionsnummer;
+				comboItem.Text = skolekode.Skole;
+
+				combo.Items.Add(comboItem);
+			}
+		}
+
+		private List<Skolekode> GetSkolekodeList()
+		{
+			List<Skolekode> skolekodeList = skolekodeRepo.List.Where(s => s.Deleted == false).OrderBy(sk => sk.Skole).ToList();
+			return skolekodeList;
 		}
 
 		protected void LoadCuraRoles()
@@ -248,12 +270,13 @@ namespace App_Web
 		protected void Button_submit_Click(object sender, EventArgs e)
 		{
 			//TEST
-			int index = RblIsMUElev.SelectedIndex;
-			string skole = TxtBoxMUElev_Skolekode.Text;
-			string value = RblMUElev_Rolle.SelectedValue;
+			//int index = RblIsMUElev.SelectedIndex;
+			//string skole = TxtBoxMUElev_Skolekode.Text;
+			//string value = RblMUElev_Rolle.SelectedValue;
 			//string pos = LblStilling.Text;
 			//string val = RbEHandelBrugerType.SelectedValue;
 			//string op = GetEhandelRoleSelectionText();
+			string val = ComboMUElev_Skolekode.SelectedValue;
 
 			if (IsPageValid())
 			{
@@ -278,7 +301,8 @@ namespace App_Web
 												TxbFaellespostkasserNavne.Text,
 
 												RblIsMUElev.SelectedIndex == 0,
-												TxtBoxMUElev_Skolekode.Text,
+												ComboMUElev_Skolekode.SelectedValue,
+												//TxtBoxMUElev_Skolekode.Text,
 												RblMUElev_Rolle.SelectedValue,
 
 												RbIsCura.SelectedIndex == 0,
@@ -607,13 +631,14 @@ namespace App_Web
 
 				if (RblIsMUElev.SelectedIndex == 0)
 				{
-					if (TxtBoxMUElev_Skolekode.Text.Length > 0)
+					if (ComboMUElev_Skolekode.SelectedValue != string.Empty)
 					{
-						TxtBoxMUElev_Skolekode.BorderColor = colNoErr;
+						ComboMUElev_Skolekode.BorderColor = colNoErr;
 					}
 					else
 					{
-						TxtBoxMUElev_Skolekode.BorderColor = colErr;
+						ComboMUElev_Skolekode.BorderWidth = 1;
+						ComboMUElev_Skolekode.BorderColor = colErr;
 						res = false;
 					}
 
@@ -1824,7 +1849,7 @@ namespace App_Web
 			}
 			else
 			{
-				TxtBoxMUElev_Skolekode.Text = "";
+				ComboMUElev_Skolekode.ClearSelection();
 				RblMUElev_Rolle.SelectedIndex = -1;
 				PanelMUElev.Visible = false;
 			}

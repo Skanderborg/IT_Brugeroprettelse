@@ -566,7 +566,7 @@
                                     <telerik:RadComboBoxItem Text="Læseadgang" Value="LAESEADGANG" />
                                 </Items>
                             </telerik:RadComboBox>
-                            <a href="https://intranet.skanderborg.dk/kmd-institution-I2?item=2679758" class="smallLink" target="_blank">Se Børn og Unges side vedr. KMD Institution</a>
+                            <a href="https://intranet.skanderborg.dk/kmd-institution-I2?item=2679758" class="smallLink" target="_blank" style="font-size:11px;">Se Børn og Unges side vedr. KMD Institution</a>
                         </div>
                     </div>
                 </asp:Panel>
@@ -643,7 +643,13 @@
                         <div class="requiredfield">*</div>
                         <%--<label for="TxbEducaPersonale_skolekode">Skolekode:</label><label class="requiredfield">*</label>--%>
                         <telerik:RadTextBox runat="server" ID="TxbEducaPersonale_skolekode" Width="100%" />
+
+
+
+
                     </div>
+
+
                     <div class="radioButtonHeader">
                         <telerik:RadLabel runat="server" ID="ErrorEducaPersonale_Role">Rolle:</telerik:RadLabel>
                         <telerik:RadLabel runat="server" ForeColor="Red" Font-Size="16" Text="*"></telerik:RadLabel>
@@ -675,11 +681,19 @@
                 <asp:Panel ID="PanelMUElev" runat="server" Visible="false" CssClass="leftIndent">
 
                     <div class="form-group">
-                        <div for="TxtBoxMUElev_Skolekode" class="inputLabel">Skolekode:</div>
+                        <div for="TxtBoxMUElev_Skolekode" class="inputLabel">Skole:</div>
                         <div class="requiredfield">*</div>
                         <%--<label for="TxbEducaPersonale_skolekode">Skolekode:</label><label class="requiredfield">*</label>--%>
-                        <telerik:RadTextBox runat="server" ID="TxtBoxMUElev_Skolekode" Width="100%" />
+                       <%-- <telerik:RadTextBox runat="server" ID="TxtBoxMUElev_Skolekode" Width="100%" />--%>
+
+                        <telerik:RadComboBox runat="server" ID="ComboMUElev_Skolekode" Skin="Bootstrap" Width="100%" EmptyMessage="Angiv skole"
+                            EnableLoadOnDemand="true"
+                            ShowToggleImage="true" AllowCustomText="false"
+                            CheckBoxes="false" DropDownAutoWidth="Enabled">
+                        </telerik:RadComboBox>
                     </div>
+
+
                     <div class="radioButtonHeader">
                         <telerik:RadLabel runat="server" ID="ErrorMUElev_Rolle">Rolle:</telerik:RadLabel>
                         <telerik:RadLabel runat="server" ForeColor="Red" Font-Size="16" Text="*"></telerik:RadLabel>
@@ -687,15 +701,22 @@
                     <div class="form-group">
                         <%--<asp:Label runat="server" ID="errEducaPersonale_Role" for="RbEducaPersonale_Role">Rolle:</asp:Label><label class="requiredfield">*</label>--%>
                         <asp:RadioButtonList ID="RblMUElev_Rolle" runat="server" Width="100%" RepeatDirection="Vertical">
-                            <asp:ListItem Value="Administrativt Personale">Administrativt Personale (MU-Elev) <label class="smallLabel">Tildeles til Administrativt personale på skolen. Giver adgang til at administrere den enkelte skole ift. indskrivning, stamdata opsætning af fravær mm.</label>
+
+                            <asp:ListItem Value="Administrativt Personale (MU-Elev)">Administrativt Personale (MU-Elev) 
+                                <div><label class="smallLabel">Tildeles til Administrativt personale eller ledelse på skolen. Giver adgang til at administrere den enkelte skole ift. indskrivning, stamdata opsætning af fravær mm.</label></div>
                             </asp:ListItem>
 
-                            <asp:ListItem Text="Skoleadministrator (MinUddannelse)" Value="Skoleadministrator">Skoleadministrator (MinUddannelse) <label class="smallLabel">Tildeles til Administrativt personale på skolen. Giver adgang til at administrere den enkelte skole ift. opsætning af læringsplatformen.</label>
+                            <asp:ListItem Value="Skoleadministrator (MinUddannelse)">Skoleadministrator (MinUddannelse) 
+                                <div><label class="smallLabel">Tildeles til Administrativt personale eller ledelse på skolen. Giver adgang til at administrere den enkelte skole ift. opsætning af læringsplatformen.</label></div>
                             </asp:ListItem>
-                            <asp:ListItem Text="Skoleleder (MinUddannelse)" Value="Skoleleder">Skoleleder (MinUddannelse)<label class="smallLabel">Tildeles til Skoleleder. Giver adgang til ledelsesinformation på skole niveau.</label>
+                            
+                            <asp:ListItem Value="Skoleleder (MU-Elev og MinUddannelse)">Skoleleder (MU-Elev og MinUddannelse) 
+                                <div><label class="smallLabel">Tildeles til Skoleleder. Giver adgang til ledelsesinformation på skole niveau i MinUdddannelse samt adgang til at administrere den enkelte skole i MU-Elev</label></div>                     
                             </asp:ListItem>
+
                         </asp:RadioButtonList>
-                        <a href="https://intranet.skanderborg.dk/mu-elev-og-minuddannelse?item=2915268" class="smallLink" target="_blank">Se Børn og Unges side vedr. MU Elev og Min Uddannelse</a>
+                        <a href="https://intranet.skanderborg.dk/mu-elev-og-minuddannelse?item=2915268" class="smallLink" target="_blank" style="font-size:11px;">Se Børn og Unges side vedr. MU Elev og Min Uddannelse</a>
+
                     </div>
                     
                 </asp:Panel>
