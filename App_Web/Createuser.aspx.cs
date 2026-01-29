@@ -44,9 +44,13 @@ namespace App_Web
 			string sofdCoreApiKey = Properties.Settings.Default.SofdCoreApiKey;
 			SofdCoreAPI_WebService.SofdCoreAPI_WebService ws = new SofdCoreAPI_WebService.SofdCoreAPI_WebService();
 
-			List<EmployeeAffiliationWithoutADUser> employeeList = ws.GetPersonsWithoutADUsers(sofdCoreApiKey).OrderBy(e => e.PersonFirstname).ThenBy(e => e.PersonSurname).ToList();
+			List<EmployeeAffiliationWithoutADUser> empList = ws.GetPersonsWithoutADUsers(sofdCoreApiKey).ToList();
 
-			return employeeList;
+			empList = empList.OrderBy(emp => emp.PersonFirstname).ThenBy(em => em.PersonSurname).ToList();
+
+			//List<EmployeeAffiliationWithoutADUser> employeeList = ws.GetPersonsWithoutADUsers(sofdCoreApiKey).OrderBy(e => e.PersonFirstname).ThenBy(em => em.PersonSurname).ToList();
+
+			return empList;
 		}
 
 		private List<string> GetDisabledCuraRoleNameList()
