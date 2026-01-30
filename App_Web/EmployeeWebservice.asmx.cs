@@ -1,4 +1,5 @@
 ﻿using App_Web.SofdCoreAPI_WebService;
+using DAL.ITBrugeroprettelse.Data;
 using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
@@ -26,7 +27,8 @@ namespace App_Web
 		[WebMethod]
 		public RadComboBoxData GetEmployeeWithoutADUser(RadComboBoxContext context)
 		{
-			List<EmployeeAffiliationWithoutADUser> employeeList = Application["Employee"] as List<EmployeeAffiliationWithoutADUser>;
+			List<AnsatUdenADBruger> employeeList = Application["Employee"] as List<AnsatUdenADBruger>;
+			//List<EmployeeAffiliationWithoutADUser> employeeList = Application["Employee"] as List<EmployeeAffiliationWithoutADUser>;
 
 			if (context.Text.Length >= 2)
 			{
@@ -34,14 +36,14 @@ namespace App_Web
 				List<RadComboBoxItemData> result = new List<RadComboBoxItemData>();
 				string searchterm = context.Text.ToLower();
 
-				foreach (EmployeeAffiliationWithoutADUser employee in employeeList.Where(e => e.PersonCpr.ToLower().StartsWith(searchterm)
+				foreach (AnsatUdenADBruger employee in employeeList.Where(e => e.PersonCpr.ToLower().StartsWith(searchterm)
 				|| e.PersonFirstname.ToLower().Contains(searchterm)
 				|| e.PersonSurname.ToLower().Contains(searchterm)
 				|| (e.PersonFirstname + ' ' +  e.PersonSurname).ToLower().Contains(searchterm)
 				))
 				{
 					RadComboBoxItemData item = new RadComboBoxItemData();
-					item.Text = employee.PersonFirstname + " " + employee.PersonSurname + " -- " + employee.OrgUnitName + " -- " + employee.AffliationPositionName + " -- MedNR: " + employee.EmployeeId;
+					item.Text = employee.PersonFirstname + " " + employee.PersonSurname + " -- " + employee.OrgUnitName + " -- " + employee.AffiliationPositionName + " -- MedNR: " + employee.EmployeeId;
 					item.Value = employee.EmployeeId;
 					result.Add(item);
 				}

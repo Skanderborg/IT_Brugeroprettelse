@@ -19,9 +19,11 @@ namespace App_Web
 		private System.Drawing.Color colNoErrLabel = System.Drawing.Color.Black;
 
 		private DAL.ITBrugeroprettelse.Data.IRepo<Skolekode> skolekodeRepo = new SkolekodeRepo(Properties.Settings.Default.ConnectionStringITBrugeroprettelse);
+		private DAL.ITBrugeroprettelse.Data.IRepo<AnsatUdenADBruger> ansatUdenADBrugerRepo = new AnsatUdenADBrugerRepo(Properties.Settings.Default.ConnectionStringITBrugeroprettelse);
 		private DAL.RPA_CuraBrugere.Data.IRepo<DisabledGroupName> disabledGroupNameRepo = new DisabledGroupNamesRepo(Properties.Settings.Default.ConnectionStringCuraBrugere);
 
-		private static List<EmployeeAffiliationWithoutADUser> employeesWithoutADUser;
+		private static List<AnsatUdenADBruger> employeesWithoutADUser;
+		//private static List<EmployeeAffiliationWithoutADUser> employeesWithoutADUser;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -31,15 +33,27 @@ namespace App_Web
 				LoadCuraLOrg();
 				LoadComboSkole(ComboMUElev_Skolekode);
 
-
-				List<EmployeeAffiliationWithoutADUser> employeeList = LoadUserWithoutADUserList();
+				List<AnsatUdenADBruger> employeeList = LoadUserWithoutADUserList();
+				//List<EmployeeAffiliationWithoutADUser> employeeList = LoadUserWithoutADUserList();
 				Application["Employee"] = employeeList;
 				employeesWithoutADUser = employeeList;
 			}
 		}
 
+		private List<AnsatUdenADBruger> LoadUserWithoutADUserList()
+		{
 
-		private List<EmployeeAffiliationWithoutADUser> LoadUserWithoutADUserList()
+
+			List<AnsatUdenADBruger> empList = ansatUdenADBrugerRepo.List.ToList();
+
+			empList = empList.OrderBy(emp => emp.PersonFirstname).ThenBy(em => em.PersonSurname).ToList();
+
+			//List<EmployeeAffiliationWithoutADUser> employeeList = ws.GetPersonsWithoutADUsers(sofdCoreApiKey).OrderBy(e => e.PersonFirstname).ThenBy(em => em.PersonSurname).ToList();
+
+			return empList;
+		}
+
+		private List<EmployeeAffiliationWithoutADUser> LoadUserWithoutADUserList_SofdService()
 		{
 			string sofdCoreApiKey = Properties.Settings.Default.SofdCoreApiKey;
 			SofdCoreAPI_WebService.SofdCoreAPI_WebService ws = new SofdCoreAPI_WebService.SofdCoreAPI_WebService();
@@ -178,7 +192,7 @@ namespace App_Web
 			int opus_id;
 			if (int.TryParse(CBOpus_medarbejdernr.SelectedValue, out opus_id))
 			{
-				Dictionary<string, string> names = service.GetEmployeeNamesFromSofdCore(opus_id, employeesWithoutADUser); //GetEmployeeNames(opus_id);
+				Dictionary<string, string> names = service.GetEmployeeNamesFromDB(opus_id, employeesWithoutADUser); //GetEmployeeNames(opus_id);
 				TxbFornavn.Text = names["Firstname"];
 				TxbEfternavn.Text = names["Lastname"];
 				TxbVistnavn.Text = names["Fullname"];
@@ -407,7 +421,7 @@ namespace App_Web
 			int opus_id;
 			if (int.TryParse(CBOpus_medarbejdernr.SelectedValue, out opus_id))
 			{
-				if (service.IsEmployeeInSofdCore(opus_id, employeesWithoutADUser))
+				if (service.IsEmployeeInDB(opus_id, employeesWithoutADUser))
 				{
 					CBOpus_medarbejdernr.BorderColor = colNoErr;
 				}

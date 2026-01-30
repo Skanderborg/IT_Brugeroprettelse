@@ -13,5 +13,6 @@ namespace DAL.ITBrugeroprettelse.Data
 		void Delete(IEntity entity);
 		void Update();
 		IEntity FindById(int id);
+		void TruncateTable();
 	}
 }

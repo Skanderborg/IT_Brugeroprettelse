@@ -8,4 +8,17 @@
       <Column Name="Deleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.AnsatUdenADBruger" Member="AnsatUdenADBrugers">
+    <Type Name="AnsatUdenADBruger">
+      <Column Name="SystemID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PersonFirstname" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="PersonSurname" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="PersonName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PersonCpr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmployeeId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AffiliationPositionName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="OrgUnitName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DateTimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
 </Database>

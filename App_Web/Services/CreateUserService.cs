@@ -6,6 +6,7 @@ using Lib_runbook;
 using Lib_ActiveDirectory.Services;
 using lib_azure_service;
 using App_Web.SofdCoreAPI_WebService;
+using DAL.ITBrugeroprettelse.Data;
 
 namespace App_Web.Services
 {
@@ -49,12 +50,22 @@ namespace App_Web.Services
             return res;
         }
 
-        //private string GetCpr(int opus_id)
-        //{
-        //    return posRepo.Query.Where(p => p.Opus_id == opus_id).First().Cpr;         
-        //}
+		internal Dictionary<string, string> GetEmployeeNamesFromDB(int opus_id, List<AnsatUdenADBruger> employeeList)
+		{
+			Dictionary<string, string> res = new Dictionary<string, string>();
 
-        private string GetCprFromSofdCore(int opus_id)
+			AnsatUdenADBruger employee = employeeList.Where(e => e.EmployeeId == opus_id.ToString()).FirstOrDefault();
+
+
+			res["Firstname"] = employee.PersonFirstname;
+			res["Lastname"] = employee.PersonSurname;
+			res["Fullname"] = employee.PersonName;
+			res["Position"] = employee.AffiliationPositionName;
+			return res;
+		}
+
+
+		private string GetCprFromSofdCore(int opus_id)
         {
             string cpr = string.Empty;
             string sofdCoreApiKey = Properties.Settings.Default.SofdCoreApiKey;
@@ -75,10 +86,7 @@ namespace App_Web.Services
             return cpr;
         }
 
-        //internal bool IsEmployee(int opus_id)
-        //{
-        //    return posRepo.Query.Where(p => p.Opus_id == opus_id).Count() == 1;
-        //}
+
 
         internal bool IsEmployeeInSofdCore(int opus_id, List<EmployeeAffiliationWithoutADUser> employeeList)
         {
@@ -87,7 +95,14 @@ namespace App_Web.Services
             return count == 1;
         }
 
-        internal string GetCurrentUserADUsername()
+		internal bool IsEmployeeInDB(int opus_id, List<AnsatUdenADBruger> employeeList)
+		{
+			int count = employeeList.Where(e => e.EmployeeId == opus_id.ToString()).ToList().Count;
+
+			return count == 1;
+		}
+
+		internal string GetCurrentUserADUsername()
         {
             string username = string.Empty;
 

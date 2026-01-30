@@ -33,6 +33,9 @@ namespace DAL.ITBrugeroprettelse.Data
     partial void InsertSkolekode(Skolekode instance);
     partial void UpdateSkolekode(Skolekode instance);
     partial void DeleteSkolekode(Skolekode instance);
+    partial void InsertAnsatUdenADBruger(AnsatUdenADBruger instance);
+    partial void UpdateAnsatUdenADBruger(AnsatUdenADBruger instance);
+    partial void DeleteAnsatUdenADBruger(AnsatUdenADBruger instance);
     #endregion
 		
 		public DataClassITBrugeroprettelseDataContext() : 
@@ -70,6 +73,14 @@ namespace DAL.ITBrugeroprettelse.Data
 			get
 			{
 				return this.GetTable<Skolekode>();
+			}
+		}
+		
+		public System.Data.Linq.Table<AnsatUdenADBruger> AnsatUdenADBrugers
+		{
+			get
+			{
+				return this.GetTable<AnsatUdenADBruger>();
 			}
 		}
 	}
@@ -183,6 +194,260 @@ namespace DAL.ITBrugeroprettelse.Data
 					this._Deleted = value;
 					this.SendPropertyChanged("Deleted");
 					this.OnDeletedChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AnsatUdenADBruger")]
+	public partial class AnsatUdenADBruger : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SystemID;
+		
+		private string _PersonFirstname;
+		
+		private string _PersonSurname;
+		
+		private string _PersonName;
+		
+		private string _PersonCpr;
+		
+		private string _EmployeeId;
+		
+		private string _AffiliationPositionName;
+		
+		private string _OrgUnitName;
+		
+		private System.DateTime _DateTimeStamp;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSystemIDChanging(int value);
+    partial void OnSystemIDChanged();
+    partial void OnPersonFirstnameChanging(string value);
+    partial void OnPersonFirstnameChanged();
+    partial void OnPersonSurnameChanging(string value);
+    partial void OnPersonSurnameChanged();
+    partial void OnPersonNameChanging(string value);
+    partial void OnPersonNameChanged();
+    partial void OnPersonCprChanging(string value);
+    partial void OnPersonCprChanged();
+    partial void OnEmployeeIdChanging(string value);
+    partial void OnEmployeeIdChanged();
+    partial void OnAffiliationPositionNameChanging(string value);
+    partial void OnAffiliationPositionNameChanged();
+    partial void OnOrgUnitNameChanging(string value);
+    partial void OnOrgUnitNameChanged();
+    partial void OnDateTimeStampChanging(System.DateTime value);
+    partial void OnDateTimeStampChanged();
+    #endregion
+		
+		public AnsatUdenADBruger()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SystemID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int SystemID
+		{
+			get
+			{
+				return this._SystemID;
+			}
+			set
+			{
+				if ((this._SystemID != value))
+				{
+					this.OnSystemIDChanging(value);
+					this.SendPropertyChanging();
+					this._SystemID = value;
+					this.SendPropertyChanged("SystemID");
+					this.OnSystemIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PersonFirstname", DbType="NVarChar(300)")]
+		public string PersonFirstname
+		{
+			get
+			{
+				return this._PersonFirstname;
+			}
+			set
+			{
+				if ((this._PersonFirstname != value))
+				{
+					this.OnPersonFirstnameChanging(value);
+					this.SendPropertyChanging();
+					this._PersonFirstname = value;
+					this.SendPropertyChanged("PersonFirstname");
+					this.OnPersonFirstnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PersonSurname", DbType="NVarChar(300)")]
+		public string PersonSurname
+		{
+			get
+			{
+				return this._PersonSurname;
+			}
+			set
+			{
+				if ((this._PersonSurname != value))
+				{
+					this.OnPersonSurnameChanging(value);
+					this.SendPropertyChanging();
+					this._PersonSurname = value;
+					this.SendPropertyChanged("PersonSurname");
+					this.OnPersonSurnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PersonName", DbType="NVarChar(500)")]
+		public string PersonName
+		{
+			get
+			{
+				return this._PersonName;
+			}
+			set
+			{
+				if ((this._PersonName != value))
+				{
+					this.OnPersonNameChanging(value);
+					this.SendPropertyChanging();
+					this._PersonName = value;
+					this.SendPropertyChanged("PersonName");
+					this.OnPersonNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PersonCpr", DbType="NVarChar(50)")]
+		public string PersonCpr
+		{
+			get
+			{
+				return this._PersonCpr;
+			}
+			set
+			{
+				if ((this._PersonCpr != value))
+				{
+					this.OnPersonCprChanging(value);
+					this.SendPropertyChanging();
+					this._PersonCpr = value;
+					this.SendPropertyChanged("PersonCpr");
+					this.OnPersonCprChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeId", DbType="NVarChar(50)")]
+		public string EmployeeId
+		{
+			get
+			{
+				return this._EmployeeId;
+			}
+			set
+			{
+				if ((this._EmployeeId != value))
+				{
+					this.OnEmployeeIdChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeId = value;
+					this.SendPropertyChanged("EmployeeId");
+					this.OnEmployeeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AffiliationPositionName", DbType="NVarChar(200)")]
+		public string AffiliationPositionName
+		{
+			get
+			{
+				return this._AffiliationPositionName;
+			}
+			set
+			{
+				if ((this._AffiliationPositionName != value))
+				{
+					this.OnAffiliationPositionNameChanging(value);
+					this.SendPropertyChanging();
+					this._AffiliationPositionName = value;
+					this.SendPropertyChanged("AffiliationPositionName");
+					this.OnAffiliationPositionNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrgUnitName", DbType="NVarChar(200)")]
+		public string OrgUnitName
+		{
+			get
+			{
+				return this._OrgUnitName;
+			}
+			set
+			{
+				if ((this._OrgUnitName != value))
+				{
+					this.OnOrgUnitNameChanging(value);
+					this.SendPropertyChanging();
+					this._OrgUnitName = value;
+					this.SendPropertyChanged("OrgUnitName");
+					this.OnOrgUnitNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTimeStamp", DbType="DateTime NOT NULL")]
+		public System.DateTime DateTimeStamp
+		{
+			get
+			{
+				return this._DateTimeStamp;
+			}
+			set
+			{
+				if ((this._DateTimeStamp != value))
+				{
+					this.OnDateTimeStampChanging(value);
+					this.SendPropertyChanging();
+					this._DateTimeStamp = value;
+					this.SendPropertyChanged("DateTimeStamp");
+					this.OnDateTimeStampChanged();
 				}
 			}
 		}

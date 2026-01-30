@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://Skanderborg.dk/xml/Schemas" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://Skanderborg.dk/xml/Schemas" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Skanderborg.dk/xml/Schemas">
+      <s:element name="GetPersons_FromUsername">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sofdCoreApiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersons_FromUsernameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPersons_FromUsernameResult" type="tns:ArrayOfPerson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPerson">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Person">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Uuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Master" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Deleted" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastChanged" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Firstname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cpr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChosenName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnniversaryDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocalExtensions" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegisteredPostAddressId" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResidencePostAddressId" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="KeyWords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaxedPhone" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisableAccountOrders" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ForceStop" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CalculatedName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Affiliations" type="tns:ArrayOfAffiliation" />
+          <s:element minOccurs="0" maxOccurs="1" name="Users" type="tns:ArrayOfUser" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegisteredPostAddress" type="tns:PersonPost" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResidencePostAddress" type="tns:PersonPost" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCodes" type="tns:ArrayOfAuthorizationCode" />
+          <s:element minOccurs="0" maxOccurs="1" name="Leave" type="tns:Leave" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phones" type="tns:ArrayOfPersonPhone" />
+          <s:element minOccurs="0" maxOccurs="1" name="Children" type="tns:ArrayOfPersonChild" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhonesPhones" type="tns:ArrayOfPersonPhone" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisabledUsers" type="tns:ArrayOfDisabledUser" />
+          <s:element minOccurs="0" maxOccurs="1" name="Substitutes" type="tns:ArrayOfSubstituteAssignment" />
+          <s:element minOccurs="0" maxOccurs="1" name="Photo" type="tns:Photo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAffiliation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Affiliation" nillable="true" type="tns:Affiliation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Affiliation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Uuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Master" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StopDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Deleted" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmployeeId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmploymentTerms" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmploymentTermsText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PayGrade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WageStep" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkingHoursDenominator" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkingHoursNumerator" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="AffiliationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocalExtensions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PositionId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PositionName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prime" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PositionTypeId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PositionTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonUuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrgunitUuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SourceOrgunitUuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AlternativeOrgunitUuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrgUnit" type="tns:OrgUnit" />
+          <s:element minOccurs="0" maxOccurs="1" name="Functions" type="tns:ArrayOfFunction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrgUnit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Uuid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Master" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Deleted" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastChanged" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParentUuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Shortname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SourceName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CvrName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cvr" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ean" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="EanInherited" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Senr" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pnr" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="CostBearer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrgType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrgTypeId" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocalExtensions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KeyWords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OpeningHours" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Addresses" type="tns:ArrayOfOrgUnitPost" />
+          <s:element minOccurs="0" maxOccurs="1" name="Manager" type="tns:OrgUnitManager" />
+          <s:element minOccurs="0" maxOccurs="1" name="KLEPrimary" type="tns:ArrayOfOrgUnitKLEPrimary" />
+          <s:element minOccurs="0" maxOccurs="1" name="KLESecondary" type="tns:ArrayOfOrgUnitKLESecondary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tags" type="tns:ArrayOfOrgUnitTag" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phones" type="tns:ArrayOfOrgUnitPhone" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrgUnitPost">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrgUnitPost" nillable="true" type="tns:OrgUnitPost" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrgUnitPost">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OrgUnitUuid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prime" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressProtected" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Master" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrgUnitManager">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Inherited" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrgUnitUuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonUuid" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrgUnitKLEPrimary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrgUnitKLEPrimary" nillable="true" type="tns:OrgUnitKLEPrimary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrgUnitKLEPrimary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OrgUnitUuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrgUnitKLESecondary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrgUnitKLESecondary" nillable="true" type="tns:OrgUnitKLESecondary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrgUnitKLESecondary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OrgUnitUuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrgUnitTag">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrgUnitTag" nillable="true" type="tns:OrgUnitTag" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrgUnitTag">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RefId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrgUnitUuid" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrgUnitPhone">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrgUnitPhone" nillable="true" type="tns:OrgUnitPhone" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrgUnitPhone">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OrgUnitUuid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prime" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TypePrime" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Master" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Visibility" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FunctionType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFunction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Function" nillable="true" type="tns:Function" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Function">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Uuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Master" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocalExtensions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prime" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmployeeId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KombitUuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonUuid" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PersonPost">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Prime" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressProtected" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Master" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAuthorizationCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AuthorizationCode" nillable="true" type="tns:AuthorizationCode" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AuthorizationCode">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prime" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonUuid" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Leave">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonUuid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StopDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisableAccountOrders" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpireAccounts" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPersonPhone">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PersonPhone" nillable="true" type="tns:PersonPhone" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PersonPhone">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PersonUuid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prime" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TypePrime" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Master" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Visibility" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FunctionType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPersonChild">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PersonChild" nillable="true" type="tns:PersonChild" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PersonChild">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RefId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cpr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonUuid" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDisabledUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DisabledUser" nillable="true" type="tns:DisabledUser" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DisabledUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Uuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Master" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocalExtensions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prime" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmployeeId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonUuid" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSubstituteAssignment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SubstituteAssignment" nillable="true" type="tns:SubstituteAssignment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SubstituteAssignment">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonUuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubstituteUuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubstituteContextName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubstituteContextIdentifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubstituteContextSupportsConstraints" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Changed" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Photo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonUuid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastChanged" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Checksum" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Format" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPersons_FromCPR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cpr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sofdCoreApiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersons_FromCPRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPersons_FromCPRResult" type="tns:ArrayOfPerson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersons_FromEmployeeID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="employeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sofdCoreApiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersons_FromEmployeeIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPersons_FromEmployeeIDResult" type="tns:ArrayOfPerson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrgUnitFromUuid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orgUuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sofdCoreApiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrgUnitFromUuidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrgUnitFromUuidResult" type="tns:ArrayOfOrgUnit" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOrgUnit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrgUnit" nillable="true" type="tns:OrgUnit" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllPersonsWithADUsername">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sofdCoreApiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllPersonsWithADUsernameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllPersonsWithADUsernameResult" type="tns:ArrayOfPerson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersonsWithoutADUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sofdCoreApiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersonsWithoutADUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPersonsWithoutADUsersResult" type="tns:ArrayOfEmployeeAffiliationWithoutADUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEmployeeAffiliationWithoutADUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EmployeeAffiliationWithoutADUser" nillable="true" type="tns:EmployeeAffiliationWithoutADUser" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EmployeeAffiliationWithoutADUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EmployeeId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonFirstname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonSurname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonCpr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AffliationPositionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrgUnitName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPersons_FromUsernameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPersons_FromUsername" />
+  </wsdl:message>
+  <wsdl:message name="GetPersons_FromUsernameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPersons_FromUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPersons_FromCPRSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPersons_FromCPR" />
+  </wsdl:message>
+  <wsdl:message name="GetPersons_FromCPRSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPersons_FromCPRResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPersons_FromEmployeeIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPersons_FromEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="GetPersons_FromEmployeeIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPersons_FromEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrgUnitFromUuidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrgUnitFromUuid" />
+  </wsdl:message>
+  <wsdl:message name="GetOrgUnitFromUuidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrgUnitFromUuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPersonsWithADUsernameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllPersonsWithADUsername" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPersonsWithADUsernameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllPersonsWithADUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonsWithoutADUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPersonsWithoutADUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonsWithoutADUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPersonsWithoutADUsersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SofdCoreAPI_WebServiceSoap">
+    <wsdl:operation name="GetPersons_FromUsername">
+      <wsdl:input message="tns:GetPersons_FromUsernameSoapIn" />
+      <wsdl:output message="tns:GetPersons_FromUsernameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersons_FromCPR">
+      <wsdl:input message="tns:GetPersons_FromCPRSoapIn" />
+      <wsdl:output message="tns:GetPersons_FromCPRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersons_FromEmployeeID">
+      <wsdl:input message="tns:GetPersons_FromEmployeeIDSoapIn" />
+      <wsdl:output message="tns:GetPersons_FromEmployeeIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrgUnitFromUuid">
+      <wsdl:input message="tns:GetOrgUnitFromUuidSoapIn" />
+      <wsdl:output message="tns:GetOrgUnitFromUuidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPersonsWithADUsername">
+      <wsdl:input message="tns:GetAllPersonsWithADUsernameSoapIn" />
+      <wsdl:output message="tns:GetAllPersonsWithADUsernameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonsWithoutADUsers">
+      <wsdl:input message="tns:GetPersonsWithoutADUsersSoapIn" />
+      <wsdl:output message="tns:GetPersonsWithoutADUsersSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SofdCoreAPI_WebServiceSoap" type="tns:SofdCoreAPI_WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPersons_FromUsername">
+      <soap:operation soapAction="http://Skanderborg.dk/xml/Schemas/GetPersons_FromUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersons_FromCPR">
+      <soap:operation soapAction="http://Skanderborg.dk/xml/Schemas/GetPersons_FromCPR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersons_FromEmployeeID">
+      <soap:operation soapAction="http://Skanderborg.dk/xml/Schemas/GetPersons_FromEmployeeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrgUnitFromUuid">
+      <soap:operation soapAction="http://Skanderborg.dk/xml/Schemas/GetOrgUnitFromUuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPersonsWithADUsername">
+      <soap:operation soapAction="http://Skanderborg.dk/xml/Schemas/GetAllPersonsWithADUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonsWithoutADUsers">
+      <soap:operation soapAction="http://Skanderborg.dk/xml/Schemas/GetPersonsWithoutADUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SofdCoreAPI_WebServiceSoap12" type="tns:SofdCoreAPI_WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPersons_FromUsername">
+      <soap12:operation soapAction="http://Skanderborg.dk/xml/Schemas/GetPersons_FromUsername" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersons_FromCPR">
+      <soap12:operation soapAction="http://Skanderborg.dk/xml/Schemas/GetPersons_FromCPR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersons_FromEmployeeID">
+      <soap12:operation soapAction="http://Skanderborg.dk/xml/Schemas/GetPersons_FromEmployeeID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrgUnitFromUuid">
+      <soap12:operation soapAction="http://Skanderborg.dk/xml/Schemas/GetOrgUnitFromUuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPersonsWithADUsername">
+      <soap12:operation soapAction="http://Skanderborg.dk/xml/Schemas/GetAllPersonsWithADUsername" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonsWithoutADUsers">
+      <soap12:operation soapAction="http://Skanderborg.dk/xml/Schemas/GetPersonsWithoutADUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SofdCoreAPI_WebService">
+    <wsdl:port name="SofdCoreAPI_WebServiceSoap" binding="tns:SofdCoreAPI_WebServiceSoap">
+      <soap:address location="https://sofdcore_apiwrapper.skb.local/WebServices/SofdCoreAPI_WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SofdCoreAPI_WebServiceSoap12" binding="tns:SofdCoreAPI_WebServiceSoap12">
+      <soap12:address location="https://sofdcore_apiwrapper.skb.local/WebServices/SofdCoreAPI_WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

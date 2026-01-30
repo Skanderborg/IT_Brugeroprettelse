@@ -38,6 +38,11 @@ namespace DAL.ITBrugeroprettelse.Data
 			throw new NotImplementedException();
 		}
 
+		public void TruncateTable()
+		{
+			throw new NotImplementedException();
+		}
+
 		public void Update()
 		{
 			context.SubmitChanges();
