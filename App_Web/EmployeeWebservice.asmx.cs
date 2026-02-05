@@ -23,7 +23,6 @@ namespace App_Web
 	public class LoraWebservice : System.Web.Services.WebService
 	{
 
-
 		[WebMethod]
 		public RadComboBoxData GetEmployeeWithoutADUser(RadComboBoxContext context)
 		{

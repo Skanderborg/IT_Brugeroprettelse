@@ -42,8 +42,6 @@ namespace App_Web
 
 		private List<AnsatUdenADBruger> LoadUserWithoutADUserList()
 		{
-
-
 			List<AnsatUdenADBruger> empList = ansatUdenADBrugerRepo.List.ToList();
 
 			empList = empList.OrderBy(emp => emp.PersonFirstname).ThenBy(em => em.PersonSurname).ToList();

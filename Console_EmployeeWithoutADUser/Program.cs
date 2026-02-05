@@ -1,9 +1,7 @@
 ﻿using Console_EmployeeWithoutADUser.SofdCoreAPI_WebService;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Console_EmployeeWithoutADUser
 {
@@ -25,7 +23,6 @@ namespace Console_EmployeeWithoutADUser
 				//TILFØJ LISTEN AF ANSATTE TIL DATABASE
 				controller.AddListOfEmployeesToDatabase(employeeList);
 			}
-
 		}
 	}
 }
